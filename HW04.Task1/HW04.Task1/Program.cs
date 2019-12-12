@@ -6,9 +6,13 @@ namespace HW04.Task1
     {
         static void Main(string[] args)
         {
-            for (int letters = 90; letters <= 90 && letters >= 65; letters--)
+            for (int bigletters = 90; bigletters <= 90 && bigletters >= 65; bigletters--)
             {
-                Console.WriteLine(Convert.ToChar(letters));
+                Console.WriteLine(Convert.ToChar(bigletters));
+            }
+            for (int smallletters = 122; smallletters <= 122 && smallletters >= 97; smallletters--)
+            {
+                Console.WriteLine(Convert.ToChar(smallletters));
             }
         }
     }
