@@ -12,8 +12,9 @@ namespace Exercise2
             {
                 nums[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine("Введите последнее значение и его порядковый номер");
+            Console.WriteLine("Введите последнее значение и его порядковый номер \nЧисло:");
             int num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\nПозиция:\n");
             int pos = Convert.ToInt32(Console.ReadLine());
             for (int i = size - 2; i >= pos - 1; i--)  
                 nums[i + 1] = nums[i];
