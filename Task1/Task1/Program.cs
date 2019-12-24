@@ -5,10 +5,10 @@ namespace Task1
     class Program
     {
         static void Main(string[] args)
-        // {
-        //   int[] mas1 = new int[1];
-        //}
-        //static void Task2(string[] args)
+        {
+           int[] mas1 = new int[1];
+        }
+        static void Task2(string[] args)
         {
             var mas2 = new object [3];
             mas2[0] = 32;
@@ -17,7 +17,7 @@ namespace Task1
             Console.WriteLine((int)mas2[0] + 10);
             Console.WriteLine(mas2[2] + ", guys");
         }
-        /*static void Task3(string[] args)
+        static void Task3(string[] args)
         {
             int[] mas3 = new int[13];
             Random rand = new Random();
@@ -32,7 +32,6 @@ namespace Task1
                 } 
             }Console.WriteLine(max);
         }
-    }*/
     }
 }
 
