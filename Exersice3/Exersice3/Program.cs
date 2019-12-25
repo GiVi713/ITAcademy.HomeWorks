@@ -11,9 +11,9 @@ namespace Exersice3
             const Int64 size = 100000000;
             Random rand = new Random();
             Int64[] mas = new Int64[size];
-            for (int i = 0; i < size; i++)
+            for (Int64 k = 0; k < size; k++)
             {
-                mas[i] = rand.Next();
+                mas[k] = rand.Next();
             }
             Int64[] reverse = mas;
             time.Start();
@@ -22,10 +22,14 @@ namespace Exersice3
             Console.WriteLine("Встроенный Reverse метод: " + time.Elapsed);
             time.Reset();
             time.Start();
-            for (Int64 i = size; i >= 0; i--)
+            Int64 i, j, t;
+            for (i = 0 ,j = size -1 ; i < j; i++ , j--)
             {
+                t = mas[i];
+                mas[i] = mas[j];
+                mas[j] = t;
             } 
-            time.Stop();
+            time.Stop();            
             Console.WriteLine("Мой Reverse метод: " + time.Elapsed);
         }
     }
