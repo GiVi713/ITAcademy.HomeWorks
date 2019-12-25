@@ -6,9 +6,16 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-           int[] mas1 = new int[1];
+            Task1();
+            Task2();
+            Task3();
+            Task4();
         }
-        static void Task2(string[] args)
+        static void Task1()
+        {
+            int[] mas1 = new int[1];
+        }
+        static void Task2()
         {
             var mas2 = new object [3];
             mas2[0] = 32;
@@ -17,7 +24,7 @@ namespace Task1
             Console.WriteLine((int)mas2[0] + 10);
             Console.WriteLine(mas2[2] + ", guys");
         }
-        static void Task3(string[] args)
+        static void Task3()
         {
             int[] mas3 = new int[13];
             Random rand = new Random();
@@ -32,7 +39,15 @@ namespace Task1
                 } 
             }Console.WriteLine(max);
         }
-    }
+        static void Task4()
+        {
+            short Box = 123;
+            object ing = Box;
+            Console.WriteLine(ing + " " + ing.GetType());
+            SByte unBox = Convert.ToSByte(ing);
+            Console.WriteLine(unBox + " " + unBox.GetType());
+        }
+    }   
 }
 
 
