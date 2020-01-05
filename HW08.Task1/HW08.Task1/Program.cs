@@ -8,7 +8,6 @@ namespace HW08.Task1
         static void Main(string[] args)
         {
             StringBuilder sym = new StringBuilder("1a!2.3!!.. 4.!.?6 7! ..?");
-            Console.WriteLine(sym);
             for (int i = 0; i < sym.Length ; i++)
             {
                 if (sym[i] == '!')
@@ -22,7 +21,6 @@ namespace HW08.Task1
                     break;
                 }
             }  
-            Console.WriteLine(sym);
         }
     }
 }
