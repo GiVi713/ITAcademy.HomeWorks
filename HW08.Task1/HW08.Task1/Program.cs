@@ -17,7 +17,7 @@ namespace HW08.Task1
                 }           
                 if (sym[i] == '?')
                 {
-                    sym.Replace(' ', '_', i, sym.Length -i);
+                    sym.Replace(' ', '_', i, sym.Length - i);
                     break;
                 }
             }  

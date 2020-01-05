@@ -10,6 +10,10 @@ namespace AssemblyOne
             Tom.age = 19;
             Tom.name = "Tom";
             Tom.GetInfo();
+            Employee Test = new Employee();
+            Test.name = "Ivan";
+            Test.intern = -17;
+            Test.protintern = -16;
         }
     }
 }
