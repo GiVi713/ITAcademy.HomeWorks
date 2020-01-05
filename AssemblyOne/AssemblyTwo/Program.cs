@@ -1,12 +1,13 @@
 ﻿using System;
-
+using AssemblyOne;
 namespace AssemblyTwo
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Employee Test = new Employee();
+            Test.name = "Yaropolk";
         }
     }
 }
