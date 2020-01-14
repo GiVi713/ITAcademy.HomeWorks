@@ -10,7 +10,7 @@ namespace HW08.Task1
             StringBuilder sym = new StringBuilder("1a!2.3!!.. 4.!.?6 7! ..?");
             for (int i = 0; i < sym.Length ; i++)
             {
-                if (sym[i] == '!')
+                if (sym[i] == '!'|| sym[i] == '.')
                 {
                     sym.Remove(i, 1);
                     i--;
@@ -20,7 +20,7 @@ namespace HW08.Task1
                     sym.Replace(' ', '_', i, sym.Length - i);
                     break;
                 }
-            }  
+            }
         }
     }
 }
