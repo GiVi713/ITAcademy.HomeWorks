@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HW09_Task1.Luggage;
 
 namespace HW09_Task1
 {
     public class WebRegistration
     {
-        int regNumber;
         public void WebReg()
         {
             Console.WriteLine("Для завершении регистрации мне нужен ваш паспорт и билет");

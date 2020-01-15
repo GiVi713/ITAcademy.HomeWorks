@@ -1,4 +1,5 @@
 ﻿using System;
+using HW09_Task1.Control;
 using HW09_Task1.Luggage;
 
 namespace HW09_Task1
@@ -11,7 +12,7 @@ namespace HW09_Task1
                                          "регистрацию через интернет или желаете пройти её здесь.");
 
             string regStatus = Console.ReadLine();
-            if (regStatus == "Да")
+            if (regStatus == "Прошел")
             {
                 WebRegistration webReg = new WebRegistration();
                 webReg.WebReg();
@@ -19,10 +20,21 @@ namespace HW09_Task1
             else if( regStatus == "Здесь")
             {
                 NewPassenger newPerson = new NewPassenger();
-                newPerson.RegisterPassenger();
+                Console.WriteLine("Скажите пожалуйста ваше Имя и Фамилию");
+                newPerson.Name = Console.ReadLine();
+                string tryHere = newPerson.Name;
+                Console.WriteLine(tryHere);
             }
+            else
+            {
+                Console.WriteLine("Простите я вас не поняла, давайте начнем сначала");
+            }
+
             PersonLuggage luggage = new PersonLuggage();
-            luggage.LuggageCalc();
+            luggage.Luggage();
+
+            ControlPerson lastStep = new ControlPerson();
+            lastStep.CheckLuggage();
         }
     }
 }

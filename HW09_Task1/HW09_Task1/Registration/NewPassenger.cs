@@ -6,17 +6,19 @@ namespace HW09_Task1
 {
     public class NewPassenger
     {
-        public void RegisterPassenger()
+        private string _name;
+
+        public string Name
         {
-            Console.WriteLine("Пожалуйста скажите вашу фамилию и имя");
-            Name = Console.ReadLine();
-            Console.WriteLine(_name);
-        }
-        private string _name;  
-        public string Name 
-        {
-            get => _name;
-            set => _name = value;
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                _name = value;
+            }
         }
     }
 }
