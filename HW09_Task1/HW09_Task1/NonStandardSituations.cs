@@ -10,15 +10,16 @@ namespace HW09_Task1
         public void Beep()
         {
             Random fate = new Random();
-            int detector = fate.Next(0, 1);
-            if (detector == 0)
+            int detector = fate.Next(1, 50);
+            if (detector > 7)
             {
-                Console.WriteLine("Все в порядке, проходите. Приятного полета.");
+                Console.WriteLine("Все в порядке, проходите. Приятного полета.\n");
             }
             else
             {
-                Console.WriteLine("Пожалуйста подойдите и вытяните руки в стороны.Хорошо." +
-                    "Проходите.Приятного полета");
+                Console.WriteLine("Пожалуйста подойдите и вытяните руки в стороны.");
+                Console.ReadLine();
+                Console.WriteLine("Хорошо проходите. Приятного полета.\n");
             }
         }
         public void Lottery()
@@ -30,11 +31,6 @@ namespace HW09_Task1
                 Console.WriteLine("Вы попались на перевозке наркотиков в особо крупном размере." +
                     "Вам дали 10 лет и естественно вы никуда не полетели. ");
             }
-            else
-            {
-                ControlPerson done = new ControlPerson();
-                done.Finish();
-            }
         }
         public void AirCrush()
         {
@@ -44,11 +40,6 @@ namespace HW09_Task1
             {
                 Console.WriteLine("Вспышка на солнце вызвала возгорание двигателей, самолет потерял" +
                     "управление и упал в Тихом океане. Никто не выжил. ='(");
-            }
-            else
-            {
-                ControlPerson done = new ControlPerson();
-                done.Finish();
             }
         }
     }
