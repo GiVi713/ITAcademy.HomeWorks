@@ -9,8 +9,8 @@ namespace Self
         public double CircleArea(int storona)
         {
             double circleArea = 2 * storona * 3.14;
-            Console.WriteLine(circleArea);
-            return circleArea;
+            Console.WriteLine($"This is Circle. CLR Type is .Square is {circleArea}");
+            return circleArea;  
         }
     }
 }

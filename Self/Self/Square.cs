@@ -10,6 +10,7 @@ namespace Self
         {
             int squareArea = storona*storona;
             Console.WriteLine(squareArea);
+            Console.WriteLine($"This is Square. CLR Type is .Square is {squareArea}"); 
             return squareArea;
         }
     }

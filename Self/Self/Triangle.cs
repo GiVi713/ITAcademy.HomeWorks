@@ -8,7 +8,8 @@ namespace Self
     {
         public int triangleArea(int storona)
         {
-            int triangleArea = 2 * storona * 3.14;
+            int gipotenuza = (storona * storona);
+            int triangleArea = 0;
             Console.WriteLine(triangleArea);
             return triangleArea;
         }
