@@ -24,7 +24,7 @@ namespace HW_11.Task1
 
         public override double figiureArea()
         {
-            return Math.Pow(storona,2);
+            return Math.Pow(Storona,2);
         }
     }
     class Triangle : Figures
@@ -32,15 +32,16 @@ namespace HW_11.Task1
         private double Sides { get; set; }
         private double TriangleBase { get; set; }
 
-        public Triangle(string name, double sides, double triangleBase) : base(name) {
+        public Triangle(string name, double sides, double triangleBase) : base(name) 
+        {
             Sides = sides;
             TriangleBase = triangleBase;
         }
 
-        public override double figureArea()
+        public override double figiureArea()
         {
             double high = 0.5 * Math.Sqrt(4 * Math.Pow(Sides, 2) - Math.Pow(TriangleBase, 2));
-            return 0.5 * TriangleBase * high;
+            return Math.Round (0.5 * TriangleBase * high);
         }
     }
     class Circle : Figures
@@ -54,7 +55,7 @@ namespace HW_11.Task1
 
         public override double figiureArea()
         {
-            return Math.Pow(Radius,2) * Math.PI;
+            return Math.Round(Math.Pow(Radius,2) * Math.PI);
         }
     } 
 }
