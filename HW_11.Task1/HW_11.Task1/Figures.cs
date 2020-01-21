@@ -14,18 +14,47 @@ namespace HW_11.Task1
         public abstract double figiureArea();
     }
 
-    internal sealed class Square : Figures
+    class Square : Figures
     {
-        private double storona { get; set; }
-        public Square(string name, int storona) : base(name)
+        private double Storona { get; set; }
+        public Square(string name, double storona) : base(name)
         {
-
+            Storona = storona;
         }
 
-        public Square(string name) : base(name)
+        public override double figiureArea()
         {
+            return Math.Pow(storona,2);
         }
-
-        public override double figiureArea() => Math.Pow(2, 2);
     }
+    class Triangle : Figures
+    {
+        private double Sides { get; set; }
+        private double TriangleBase { get; set; }
+
+        public Triangle(string name, double sides, double triangleBase) : base(name) {
+            Sides = sides;
+            TriangleBase = triangleBase;
+        }
+
+        public override double figureArea()
+        {
+            double high = 0.5 * Math.Sqrt(4 * Math.Pow(Sides, 2) - Math.Pow(TriangleBase, 2));
+            return 0.5 * TriangleBase * high;
+        }
+    }
+    class Circle : Figures
+    {
+        private double Radius { get; set; }
+
+        public Circle(string name, double radius) : base (name)
+        {
+            Radius = radius;
+        }
+
+        public override double figiureArea()
+        {
+            return Math.Pow(Radius,2) * Math.PI;
+        }
+    } 
 }
