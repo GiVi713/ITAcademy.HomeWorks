@@ -16,46 +16,46 @@ namespace HW_11.Task1
 
     class Square : Figures
     {
-        private double Storona { get; set; }
-        public Square(string name, double storona) : base(name)
+        private double _Storona { get; set; }
+        public Square(string name, double _storona) : base(name)
         {
-            Storona = storona;
+            _Storona = _storona;
         }
 
         public override double figiureArea()
         {
-            return Math.Pow(Storona,2);
+            return Math.Pow(_Storona,2);
         }
     }
     class Triangle : Figures
     {
-        private double Sides { get; set; }
-        private double TriangleBase { get; set; }
+        private double _Sides { get; set; }
+        private double _TriangleBase { get; set; }
 
-        public Triangle(string name, double sides, double triangleBase) : base(name) 
+        public Triangle(string name, double _sides, double _triangleBase) : base(name) 
         {
-            Sides = sides;
-            TriangleBase = triangleBase;
+            _Sides = _sides;
+            _TriangleBase = _triangleBase;
         }
 
         public override double figiureArea()
         {
-            double high = 0.5 * Math.Sqrt(4 * Math.Pow(Sides, 2) - Math.Pow(TriangleBase, 2));
-            return Math.Round (0.5 * TriangleBase * high);
+            double high = 0.5 * Math.Sqrt(4 * Math.Pow(_Sides, 2) - Math.Pow(_TriangleBase, 2));
+            return Math.Round (0.5 * _TriangleBase * high);
         }
     }
     class Circle : Figures
     {
-        private double Radius { get; set; }
+        private double _Radius { get; set; }
 
-        public Circle(string name, double radius) : base (name)
+        public Circle(string name, double _radius) : base (name)
         {
-            Radius = radius;
+            _Radius = _radius;
         }
 
         public override double figiureArea()
         {
-            return Math.Round(Math.Pow(Radius,2) * Math.PI);
+            return Math.Round(Math.Pow(_Radius,2) * Math.PI);
         }
     } 
 }
