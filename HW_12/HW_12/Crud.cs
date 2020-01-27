@@ -32,13 +32,16 @@ namespace HW_12
             _fill.Add(newMoto);
         }
 
-        public static void Display(int ID)
+        public static void Display()
         {
+            Console.WriteLine("Выберите номер");
+            int ID = Convert.ToInt32(Console.ReadLine());
+            ID--;
             Moto newMoto = _fill[ID];
             Crud.DisplayHelper(newMoto);
         }
 
-        public static void DisplayHelper(Moto moto)
+        protected static void DisplayHelper(Moto moto)
         {
             Console.WriteLine($"Ваш запрос: \nПродам мотоцикл марки {moto.manufacturer}. Состояние: {moto.state}. Находится в городе {moto.location}." +
                                     $"Объём двигатея: {moto.engineCapacity}. Продам за {moto.price} долларов.");

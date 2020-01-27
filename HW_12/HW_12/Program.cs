@@ -11,9 +11,14 @@ namespace HW_12
         
         static void Main(string[] args)
         {
+            Logger.InitLogger();
+            Crud.AutoCreate();
+            Crud.AutoCreate();
+            Crud.DisplayAll(motorcycles);
             //Crud.AutoCreate();                    Создать мотоцикл со случайно сгенерироваными параметрами
             //Crud.HandCreate();                    Создать мотоцикл со своими параметрами
             //Crud.Update();                        Изменить объявление на выбор
+            Crud.Display();
             //Crud.DisplayAll(motorcycles);         Вывести все имеющиеся мотоциклы
             //Crud.Delete();                        Удалить объявление
         }

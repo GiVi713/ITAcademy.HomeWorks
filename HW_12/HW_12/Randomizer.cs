@@ -7,7 +7,7 @@ namespace HW_12
     class Randomizer
     {
         Random rand = new Random();
-        public static int Id = 0;
+        static int Id = 0;
         
         public int GetID()
         {
