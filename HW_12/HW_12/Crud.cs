@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using log4net;
-using log4net.Config;
+using NLog;
 
 namespace HW_12
 {
@@ -12,12 +11,16 @@ namespace HW_12
 
         static public void AutoCreate()
         {
+            //Logger.Info("Auto create new motorcycle");
+           
             Moto newMoto = new Moto();
             _fill.Add(newMoto);
         }
 
         static public void HandCreate()
         {
+            
+
             Moto newMoto = new Moto();
             Console.WriteLine("Марка мотоцикла:");
             newMoto.manufacturer = Console.ReadLine();
@@ -34,6 +37,8 @@ namespace HW_12
 
         public static void Display()
         {
+            //Logger.Info("Show the selected motorcycle");
+
             Console.WriteLine("Выберите номер");
             int ID = Convert.ToInt32(Console.ReadLine());
             ID--;
@@ -43,12 +48,16 @@ namespace HW_12
 
         protected static void DisplayHelper(Moto moto)
         {
+            //Logger.Log.Info("Small helper");
+
             Console.WriteLine($"Ваш запрос: \nПродам мотоцикл марки {moto.manufacturer}. Состояние: {moto.state}. Находится в городе {moto.location}." +
                                     $"Объём двигатея: {moto.engineCapacity}. Продам за {moto.price} долларов.");
         }
 
         static public void DisplayAll(List<Moto> motorCycles)
         {
+           // Logger.Log.Info("Show all motorcycles");
+
             Console.WriteLine("Список всех объявлений:");
             foreach (var moto in motorCycles)
             {
@@ -60,6 +69,8 @@ namespace HW_12
 
         public static void Update()
         {
+            //Logger.Log.Info("Update the selected motorcycle");
+
             Console.WriteLine("Выберите номер объявления которое хотите изменить:\n");
             Crud.DisplayAll(Program.motorcycles);
             int i = Convert.ToInt32(Console.ReadLine());
@@ -79,6 +90,8 @@ namespace HW_12
 
         public static void Delete()
         {
+            //Logger.Log.Info("Delete the seletcted motorcycle");
+
             Console.WriteLine("Выберите номер объявления которое хотите удалить:\n");
             Crud.DisplayAll(_fill);
             int i = Convert.ToInt32(Console.ReadLine());

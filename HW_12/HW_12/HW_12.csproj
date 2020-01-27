@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="NLog" Version="4.6.8" />
+    <PackageReference Include="NLog.Config" Version="4.6.8" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Logger.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    <None Update="C:\Users\Виктор\.nuget\packages\nlog.config\4.6.8\contentFiles\any\any\NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
