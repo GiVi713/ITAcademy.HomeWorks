@@ -19,7 +19,8 @@ namespace HW_12
 
         static public void HandCreate()
         {
-            Logger.Log.Info("Hand create new motorcycle");
+            Logger.Log.Debug("Create new motorcycle with your parameters");
+
             Moto newMoto = new Moto();
             Console.WriteLine("Марка мотоцикла:");
             newMoto.manufacturer = Console.ReadLine();
@@ -68,7 +69,7 @@ namespace HW_12
 
         public static void Update()
         {
-            Logger.Log.Info("Update the selected motorcycle");
+            Logger.Log.Debug("Update the selected motorcycle");
 
             Console.WriteLine("Выберите номер объявления которое хотите изменить:\n");
             Crud.DisplayAll(Program.allMoto);

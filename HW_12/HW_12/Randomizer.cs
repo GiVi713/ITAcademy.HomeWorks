@@ -18,7 +18,7 @@ namespace HW_12
 
         public string GetMark(int num) 
         {
-            Logger.Log.Info("Get random moto mark");
+            Logger.Log.Debug("Get random moto mark");
          string model="";
             switch(num)
             {
@@ -38,7 +38,7 @@ namespace HW_12
 
         public string GetState(int num)
         {
-            Logger.Log.Info("Get moto state");
+            Logger.Log.Debug("Get moto state");
             string state = "";
             switch (num)
             {
@@ -53,7 +53,7 @@ namespace HW_12
 
         public string GetLocation(int num)
         {
-            Logger.Log.Info("Get moto location");
+            Logger.Log.Debug("Get moto location");
             string location = "";
             switch (num)
             {

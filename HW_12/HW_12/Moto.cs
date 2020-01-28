@@ -23,8 +23,8 @@ namespace HW_12
             manufacturer = randomizer1.GetMark(rand.Next(1, 10));
             state = randomizer1.GetState(rand.Next(1, 5));
             location = randomizer1.GetLocation(rand.Next(1, 10));
-            engineCapacity = rand.Next(400, 1200);                  Logger.Log.Info("Set engine capacity");
-            price = rand.Next(1000, 20_000);                        Logger.Log.Info("Set price");
+            engineCapacity = rand.Next(400, 1200);                  Logger.Log.Debug("Set engine capacity");
+            price = rand.Next(1000, 20_000);                        Logger.Log.Debug("Set price");
         }
     }
 }

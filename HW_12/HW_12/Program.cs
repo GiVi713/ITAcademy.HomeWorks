@@ -16,7 +16,7 @@ namespace HW_12
         static void Main(string[] args)
         {
             Logger.InitLogger();
-            Logger.Log.Info("Start program");
+            Logger.Log.Info("*********************Start program*********************");
             Crud.AutoCreate();
             Crud.HandCreate();
             Crud.Update();
@@ -32,7 +32,7 @@ namespace HW_12
             //Crud.DisplayAll(allMoto);             Вывести все имеющиеся мотоциклы
             //Crud.Delete();                        Удалить объявление
 
-            Logger.Log.Info("Program is successfully finished");
+            Logger.Log.Info("************Program is successfully finished************");
         }
     }
 }
