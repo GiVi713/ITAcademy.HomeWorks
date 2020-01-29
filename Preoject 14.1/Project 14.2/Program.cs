@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Project_14._2
 {
     class Program
     {
-        static void Main(string[] args)
+        public static List<Song> allSongs = new List<Song> { };
+
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Song newSong = new Song();
+            newSong.NewSong();
+            newSong.GetSongData(newSong);
         }
     }
 }
