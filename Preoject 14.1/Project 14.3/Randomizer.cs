@@ -53,7 +53,6 @@ namespace Project_14._3
 
         public string GetLocation(int num)
         {
-            Logger.Log.Debug("Get moto location");
             string location = "";
             switch (num)
             {

@@ -8,16 +8,7 @@ namespace Preoject_14._1
     {
         public static string CutString(this string str)
         {
-            string newString = null;
-            int cut = 5;
-            int counter = 0;
-
-            foreach (char item in str) 
-            { 
-                counter++; 
-            }
-            
-            newString = str.Substring(2);
+            string newString = str.Remove(5, str.Length-5 );
             return newString;
         }
     }
