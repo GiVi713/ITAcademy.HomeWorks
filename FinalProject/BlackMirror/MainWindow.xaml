@@ -6,13 +6,31 @@
         xmlns:local="clr-namespace:BlackMirror"
         mc:Ignorable="d"
         Title="MainWindow" Height="454.5" Width="867.5">
+    <Window.Resources>
+        <Style x:Key="BlackAndWhite">
+            <Setter Property="Control.FontFamily" Value="comic sans ms" />
+            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Foreground" Value="Gray" />
+            <Setter Property="ItemsControl.FontSize" Value="20"/>
+            <Setter Property="Control.Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Виктор\Desktop\ITAcademy.HomeWorks\ITAcademy.HomeWorks\ITAcademy.HomeWorks\FinalProject\BlackMirror\Pictures/Mainlogo.jpg" Stretch="UniformToFill" TileMode="None" />
+        <ImageBrush ImageSource="Pictures/Mainlogo.jpg" Stretch="UniformToFill" TileMode="None" />
     </Window.Background>
+    
     <Grid Margin="0,0,2,0">
-        <TextBlock Background="Black" Foreground="White" FontSize="20" Text="Единая система контроля порядочности граждан" TextWrapping="Wrap" Margin="206,42,146,303" />
-        <Button Background="DimGray" FontSize="26" Content="Войти" InputMethod.IsInputMethodEnabled="True" RenderTransformOrigin="0.5,0.5" Margin="102,258,558,93"/>
-        <Button Background="DimGray" FontSize="26" Content="Регистрация" InputMethod.IsInputMethodEnabled="True" RenderTransformOrigin="0.5,0.5" Margin="536,258,124,93"/>
+        
+        
+        <ContentControl Content="{Binding SelectedViewModel}" Margin="-218,95,218,-95"/>
+        <TextBlock Style="{StaticResource BlackAndWhite}" Text="Единая система контроля порядочности граждан" TextWrapping="Wrap" Margin="199,31,174,333" />
+        <Button Style="{StaticResource BlackAndWhite}" Command ="{Binding UpdateViewCommand}" CommandParameter="Home" ToolTip ="Вход в учетную запись"  Content="Вход"  RenderTransformOrigin="0.5,0.5" Margin="108,319,552,58"/>
+        <Button Style="{StaticResource BlackAndWhite}" Command ="{Binding UpdateViewCommand}" CommandParameter="Account" ToolTip ="Регистрация в базе"  Content="Регистрация"  RenderTransformOrigin="0.5,0.5" Margin="546,319,73,58"/>
+        <Image Source="Pictures/login1.png" Margin="108,319,709,58" RenderTransformOrigin="0.586,1.218"/>
+        <Image Source="Pictures/Reg.png" Margin="546,319,256,58"/>
     </Grid>
+
+
 
 </Window>
