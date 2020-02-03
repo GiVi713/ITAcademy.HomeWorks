@@ -1,6 +1,4 @@
-﻿
-using BlackMirror.View;
-using BlackMirror.ViewModel;
+﻿using BlackMirror.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +22,11 @@ namespace BlackMirror
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView login = new LoginView();
+            login.Show();
         }
     }
 }

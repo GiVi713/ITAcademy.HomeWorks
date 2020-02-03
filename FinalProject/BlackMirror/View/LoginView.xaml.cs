@@ -12,14 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace BlackMirror.View
 {
     /// <summary>
-    /// Interaction logic for AccountView.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class AccountView : Window
+    public partial class LoginView : Window
     {
-        public AccountView()
+        public LoginView()
         {
             InitializeComponent();
         }

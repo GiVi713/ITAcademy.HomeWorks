@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BlackMirror"
         mc:Ignorable="d"
-        Title="MainWindow" Height="454.5" Width="867.5">
+        Title="DCS" Height="454.5" Width="867.5">
     <Window.Resources>
         <Style x:Key="BlackAndWhite">
             <Setter Property="Control.FontFamily" Value="comic sans ms" />
@@ -14,23 +13,33 @@
             <Setter Property="ItemsControl.FontSize" Value="20"/>
             <Setter Property="Control.Margin" Value="10" />
         </Style>
+        
     </Window.Resources>
 
     <Window.Background>
-        <ImageBrush ImageSource="Pictures/Mainlogo.jpg" Stretch="UniformToFill" TileMode="None" />
+        <ImageBrush ImageSource="Mainlogo.jpg" Stretch="UniformToFill" TileMode="None" />
     </Window.Background>
-    
-    <Grid Margin="0,0,2,0">
-        
-        
-        <ContentControl Content="{Binding SelectedViewModel}" Margin="-218,95,218,-95"/>
-        <TextBlock Style="{StaticResource BlackAndWhite}" Text="Единая система контроля порядочности граждан" TextWrapping="Wrap" Margin="199,31,174,333" />
-        <Button Style="{StaticResource BlackAndWhite}" Command ="{Binding UpdateViewCommand}" CommandParameter="Home" ToolTip ="Вход в учетную запись"  Content="Вход"  RenderTransformOrigin="0.5,0.5" Margin="108,319,552,58"/>
-        <Button Style="{StaticResource BlackAndWhite}" Command ="{Binding UpdateViewCommand}" CommandParameter="Account" ToolTip ="Регистрация в базе"  Content="Регистрация"  RenderTransformOrigin="0.5,0.5" Margin="546,319,73,58"/>
+
+    <Grid>
+        <TextBlock 
+            Style="{StaticResource BlackAndWhite}" 
+            Text="Единая система контроля порядочности граждан" 
+            TextWrapping="Wrap" Margin="199,31,174,333" />
+        <Button 
+            Click="Button_Click"
+            Style="{StaticResource BlackAndWhite}" 
+            ToolTip ="Вход в учетную запись"  
+            Content="Вход"  
+            RenderTransformOrigin="0.5,0.5" 
+            Margin="108,319,552,58"/>
+        <Button 
+            Style="{StaticResource BlackAndWhite}" 
+            ToolTip ="Регистрация в базе"  
+            Content="Регистрация"  
+            RenderTransformOrigin="0.5,0.5"
+            Margin="546,319,73,58"/>
         <Image Source="Pictures/login1.png" Margin="108,319,709,58" RenderTransformOrigin="0.586,1.218"/>
         <Image Source="Pictures/Reg.png" Margin="546,319,256,58"/>
+                                                                                                 
     </Grid>
-
-
-
 </Window>
