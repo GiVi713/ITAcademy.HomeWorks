@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class FillUser
+  private  class FillUser
     {
         FillUserData fill = new FillUserData();
 

@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:BlackMirror"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+             xmlns:views="clr-namespace:BlackMirror.View"
+             xmlns:vw ="clr-namespace:BlackMirror.ViewModel"
+             >
     <Application.Resources>
-        
+        <DataTemplate DataType="{x:Type vw:RegistrationViewModel}">
+            <views:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vw:AccountViewModel}">
+            <views:AccountView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
