@@ -1,4 +1,5 @@
-﻿using BlackMirror.ViewModel;
+﻿using BlackMirror.View;
+using BlackMirror.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +27,18 @@ namespace BlackMirror.Commands
 
         public void Execute(object parameter)
         {
-           if(parameter.ToString() == "Registration")
-           {
-               viewModel.SelectedViewModel = new RegistrationViewModel();
-           }
-           else if (parameter.ToString() == "Login")
-           {
-               viewModel.SelectedViewModel = new AccountViewModel();
-           }
+            if (parameter.ToString() == "Registration")
+            {
+                viewModel.SelectedViewModel = new RegistrationViewModel();
+            }
+            else if (parameter.ToString() == "Login")
+            {
+                viewModel.SelectedViewModel = new AccountViewModel();
+            }
+            else if (parameter.ToString() == "EnterAcc")
+            {
+                viewModel.SelectedViewModel = new UserMenuViewModel();
+            }
         }
     }
 }

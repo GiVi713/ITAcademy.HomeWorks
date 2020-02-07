@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    private class CreateUser : IUserData
+    class CreateUser : IUserData
     {
         FillUser fillUser = new FillUser();
         Random rand = new Random();

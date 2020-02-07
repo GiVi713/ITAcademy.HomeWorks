@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinalProject
 {
-   private  class FillUserData
+    class FillUserData
     {
         public static List<string> names = new List<string> { };
         public static List<string> cities = new List<string> { };

@@ -25,5 +25,18 @@ namespace BlackMirror
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+
+        private void MainMenuEnterClick(object sender, RoutedEventArgs e)
+        {
+             if(EnterMenuButton.IsVisible == true)
+            {
+
+            }
+        }
+
+        private void MainMenuRegClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BlackMirror.View
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class MainView : UserControl
     {
-        public LoginView()
+        public MainView()
         {
             InitializeComponent();
         }

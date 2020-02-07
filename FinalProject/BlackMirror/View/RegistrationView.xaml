@@ -17,6 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         <TextBlock Margin="193,10,87,88"
                    Grid.Row="1"
                    Text="Выберите Login"
@@ -36,9 +37,5 @@
         <PasswordBox Grid.Row="1" Grid.Column="1"
                     FontSize="20"
                     Margin="96,47,118,45"/>
-
-
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
-
     </Grid>
 </UserControl>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackMirror
+namespace BlackMirror.ViewModel
 {
-    class MainVW
+    class UserMenuViewModel : BaseViewModel
     {
+       
     }
 }

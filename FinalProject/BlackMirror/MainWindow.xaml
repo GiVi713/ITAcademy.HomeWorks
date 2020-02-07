@@ -17,7 +17,7 @@
     </Window.Resources>
 
     <Window.Background>
-        <ImageBrush ImageSource="MainLogo.jpg"/>
+        <ImageBrush ImageSource="Pictures/MainLogo.jpg"/>
     </Window.Background>
 
     <Grid>
@@ -25,17 +25,21 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <ContentControl Content="{Binding SelectedViewModel}" Margin="0,0,1,-1" Grid.ColumnSpan="2"/>
-
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="2"/>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="270" Margin="0,0,0,153">
-            <Button Style ="{StaticResource BlackAndWhite}"  
+            <Button x:Name="EnterMenuButton"
+                    Visibility="Visible"
+                    Click="MainMenuEnterClick"
+                    Style ="{StaticResource BlackAndWhite}"  
                     Margin="10" Height="38"
                     Content="Войти" 
                     ToolTip="Войти в свою учетную запись"
                     Command="{Binding UpdateViewCommand}" 
                     CommandParameter="Login"/>
-            <Button Style ="{StaticResource BlackAndWhite}" 
+            <Button x:Name="RegMenuButton"
+                    Visibility="Visible"
+                    Click="MainMenuRegClick"
+                    Style ="{StaticResource BlackAndWhite}" 
                     Margin="10" Height="38"
                     Content="Регистрация" 
                     ToolTip="Зарегистрироваться"
@@ -44,8 +48,8 @@
         </StackPanel>
         <TextBlock Text="Единая система контроля порядочности"
                    Grid.Column="1"
-                   HorizontalAlignment="Center" Margin="20"
+                    Margin="138,20,161,0"
                    VerticalAlignment="Top"
-                   Style ="{StaticResource BlackAndWhite}"/>
+                   Style ="{StaticResource BlackAndWhite}" Width="411"/>
     </Grid>
 </Window>
