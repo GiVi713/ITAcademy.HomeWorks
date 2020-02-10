@@ -36,7 +36,7 @@ namespace BlackMirror
 
         private void MainMenuRegClick(object sender, RoutedEventArgs e)
         {
-
+          
         }
     }
 }

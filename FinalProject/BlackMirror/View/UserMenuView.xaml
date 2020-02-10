@@ -7,24 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="156*"/>
+                <ColumnDefinition Width="249*"/>
+                <ColumnDefinition Width="395*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="97*"/>
+                <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
-            <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
-            <TextBlock Text="SDHHDFHDFH"
-                   FontSize="50"
-                   Foreground="Red"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+            <Image Source="C:\Users\Виктор\Desktop\Faces\image" 
+                   Grid.Column="1"
+                   Grid.Row="1"/>
+            <TextBlock x:Name="Description"
+                       Foreground="White"
+                       Grid.Column="2" Margin="45,36,188,20"
+                       Grid.Row="1"/>
+            <TextBlock x:Name="Name"
+                       Foreground="white"
+                       Grid.Row="2"
+                       Grid.Column="1" Margin="0,0,0,45"
+                       HorizontalAlignment="Center"/>
         </Grid>
-
     </Grid>
 </UserControl>

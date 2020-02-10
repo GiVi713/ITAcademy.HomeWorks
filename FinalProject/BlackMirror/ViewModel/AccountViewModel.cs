@@ -9,7 +9,5 @@ namespace BlackMirror.ViewModel
 {
     public class AccountViewModel : BaseViewModel
     {
-
-        
     }
 }

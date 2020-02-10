@@ -27,18 +27,31 @@ namespace BlackMirror.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "Registration")
+            var view = parameter.ToString();
+            switch(view)
             {
-                viewModel.SelectedViewModel = new RegistrationViewModel();
+                case "Registration":
+                    viewModel.SelectedViewModel = new RegistrationViewModel();
+                    break;
+                case "Login":
+                    viewModel.SelectedViewModel = new AccountViewModel();
+                    break;
+                case "EnterAcc":
+                    viewModel.SelectedViewModel = new UserMenuViewModel();
+                    break;
             }
-            else if (parameter.ToString() == "Login")
-            {
-                viewModel.SelectedViewModel = new AccountViewModel();
-            }
-            else if (parameter.ToString() == "EnterAcc")
-            {
-                viewModel.SelectedViewModel = new UserMenuViewModel();
-            }
+            //if (str == "Registration")
+            //{
+            //    viewModel.SelectedViewModel = new RegistrationViewModel();
+            //}
+            //else if (str == "Login")
+            //{
+            //    viewModel.SelectedViewModel = new AccountViewModel();
+            //}
+            //else if (str == "EnterAcc")
+            //{
+            //    viewModel.SelectedViewModel = new UserMenuViewModel();
+            //}
         }
     }
 }

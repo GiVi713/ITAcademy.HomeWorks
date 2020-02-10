@@ -17,6 +17,6 @@ namespace BlackMirror.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    
+
     }
 }

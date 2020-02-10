@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using BlackMirror;
+﻿using System.Windows.Input;
 using BlackMirror.Commands;
 
 namespace BlackMirror.ViewModel
@@ -12,6 +6,11 @@ namespace BlackMirror.ViewModel
     public class MainViewModel : BaseViewModel
     {
 		private BaseViewModel _selectedViewModel;
+
+		public MainViewModel()
+		{
+			UpdateViewCommand = new UpdateViewCommand(this);
+		}
 
 		public BaseViewModel SelectedViewModel
 		{
@@ -22,10 +21,7 @@ namespace BlackMirror.ViewModel
 				OnPropertyChanged(nameof(SelectedViewModel));
 			}
 		}
-		public ICommand UpdateViewCommand { get; set; } 
-		public MainViewModel()
-		{
-			UpdateViewCommand = new UpdateViewCommand(this);
-		}
+
+		public ICommand UpdateViewCommand { get; set; } 		
 	}
 }

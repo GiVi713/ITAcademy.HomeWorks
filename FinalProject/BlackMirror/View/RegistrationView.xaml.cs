@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,72 @@ namespace BlackMirror.View
         public HomeView()
         {
             InitializeComponent();
+        }
+
+        private void ButtonRegAccount(object sender, RoutedEventArgs e)
+        {
+
+            if( logbox.Text == "")
+            {
+                MessageBox.Show("Логин не может быть пустым");
+                return;
+            }
+            if (name.Text == "")
+            {
+                MessageBox.Show("Нужно заполнить Имя и Фамилию");
+                return;
+            }
+            if (passbox.Text == "")
+            {
+                MessageBox.Show("Придумайте пароль");
+                return;
+            }
+            if (locBox.Text == "")
+            {
+                MessageBox.Show("Укажите свой город");
+                return;
+            }
+
+            if (CheckLogin())
+                return;
+
+            DataBase db = new DataBase();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `BirthDate`, `Location`) VALUES (@name, @login, @pass, @age, @location)", db.getConnection());
+
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = logbox.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = nameBox.Text;
+            command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
+            command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
+
+            db.openConnection(); 
+            if (command.ExecuteNonQuery() == 1)
+                MessageBox.Show("Аккаунт был создан");
+            
+            else
+                MessageBox.Show("Аккаунт не был создан");
+            db.closeConnection();
+        }
+
+        public Boolean CheckLogin()
+        {
+            DataBase db = new DataBase();
+            DataTable table = new DataTable();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `Login` = @uL", db.getConnection());
+            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = logbox.Text;
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                MessageBox.Show("Логин уже занят");
+                return true;
+            }
+            else
+                return false ;
         }
     }
 }

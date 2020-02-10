@@ -17,13 +17,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
-        <TextBlock Margin="193,10,87,88"
+        <TextBlock x:Name="login"
+                   Margin="193,10,87,88"
                    Grid.Row="1"
                    Text="Введите Login"
                    Foreground="White"
                    FontSize="16"
                    HorizontalAlignment="Center"/>
-        <TextBlock Foreground="White"
+        <TextBlock x:Name="pass"
+                   Foreground="White"
                    FontSize="16"
                    Text="Введите пароль"
                    Grid.Column="1"
@@ -38,7 +40,8 @@
                     Grid.Row="1" Grid.Column="1"
                     FontSize="20"
                     Margin="96,47,118,45"/>
-        <Button     Grid.Row="2"
+        <Button     x:Name="Enter"
+                    Grid.Row="2"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Center"
                     Margin="359,16,317,16" Height="38"

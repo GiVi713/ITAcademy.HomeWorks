@@ -27,7 +27,7 @@ namespace BlackMirror.View
         {
             InitializeComponent();
         }
-
+        
         private void ButtonEnterAccount(object sender, RoutedEventArgs e)
         {
             var loginUser = loginField.Text;
@@ -43,15 +43,24 @@ namespace BlackMirror.View
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             adapter.SelectCommand = command;
             adapter.Fill(table);
-
+            
             if (table.Rows.Count > 0)
             {   
+                Hide();
                 MessageBox.Show("Вы успешно авторизованы.");
                 DataContext = new MainViewModel();
             }
 
             else
                 MessageBox.Show("Вы ввели неверные данные либо такого пользователя не существует.");
+        }
+        private void Hide()
+        {
+            loginField.Visibility = Visibility.Hidden;
+            passField.Visibility = Visibility.Hidden;
+            login.Visibility = Visibility.Hidden;
+            pass.Visibility = Visibility.Hidden;
+            Enter.Visibility = Visibility.Hidden;
         }
     }
 }
