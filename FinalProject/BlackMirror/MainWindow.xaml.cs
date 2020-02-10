@@ -28,15 +28,15 @@ namespace BlackMirror
 
         private void MainMenuEnterClick(object sender, RoutedEventArgs e)
         {
-             if(EnterMenuButton.IsVisible == true)
-            {
-
-            }
         }
 
         private void MainMenuRegClick(object sender, RoutedEventArgs e)
         {
-          
+        }
+        public void MainHide()
+        {
+            EnterMenuButton.Visibility = Visibility.Hidden;
+            RegMenuButton.Visibility = Visibility.Hidden;
         }
     }
 }

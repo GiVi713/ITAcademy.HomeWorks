@@ -23,6 +23,7 @@ namespace BlackMirror.View
     /// </summary>
     public partial class AccountView : UserControl
     {
+        
         public AccountView()
         {
             InitializeComponent();
@@ -56,6 +57,8 @@ namespace BlackMirror.View
         }
         private void Hide()
         {
+            MainWindow window = new MainWindow();
+            window.MainHide();
             loginField.Visibility = Visibility.Hidden;
             passField.Visibility = Visibility.Hidden;
             login.Visibility = Visibility.Hidden;

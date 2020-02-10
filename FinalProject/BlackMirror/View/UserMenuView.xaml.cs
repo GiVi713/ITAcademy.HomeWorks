@@ -24,6 +24,7 @@ namespace BlackMirror.View
         public UserMenuView()
         {
             InitializeComponent();
+            userName.Text = "sdgsdg sdg sdg ";
         }
     }
 }

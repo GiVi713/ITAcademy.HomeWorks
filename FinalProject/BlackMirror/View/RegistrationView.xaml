@@ -18,11 +18,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="191*"/>
-            <ColumnDefinition Width="459*"/>
-            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="191"/>
+            <ColumnDefinition Width="183*"/>
+            <ColumnDefinition Width="277*"/>
+            <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
         <TextBlock x:Name="login"
                    Margin="10,10,0,0" 
                    HorizontalAlignment="Left"
@@ -41,7 +42,7 @@
                  VerticalAlignment="Top"
                  Height="30"
                  Width="250"
-                 Grid.Column="1"
+                 Grid.Column="2"
                  Grid.Row="1"/>
         <TextBlock x:Name="password"
                    Margin="10,10,0,0" 
@@ -61,7 +62,7 @@
                  VerticalAlignment="Top"
                  Height="30"
                  Width="250"
-                 Grid.Column="1"
+                 Grid.Column="2"
                  Grid.Row="2"/>
         <TextBlock x:Name="name"
                    Margin="10,10,0,0" 
@@ -81,7 +82,7 @@
                  VerticalAlignment="Top"
                  Height="30"
                  Width="250"
-                 Grid.Column="1"
+                 Grid.Column="2"
                  Grid.Row="3"/>
         <TextBlock x:Name="age"
                    Margin="10,10,0,0" 
@@ -101,7 +102,7 @@
                  VerticalAlignment="Top"
                  Height="30"
                  Width="250"
-                 Grid.Column="1"
+                 Grid.Column="2"
                  Grid.Row="4"/>
         <TextBlock x:Name="location"
                    Margin="10,10,0,0" 
@@ -121,18 +122,17 @@
                  VerticalAlignment="Top"
                  Height="30"
                  Width="250"
-                 Grid.Column="1"
+                 Grid.Column="2"
                  Grid.Row="5"/>
-
         <Button     x:Name="Reg"
                     Grid.Row="6"
                     HorizontalAlignment="Center"
-                    Margin="163,33,172,24"
+                    Height="50"
                     Content="Зарегистрироваться" 
                     ToolTip="Зарегистрироваться"
                     Command="{Binding UpdateViewCommand}" 
                     CommandParameter="RegAcc" Width="124"
                     Click="ButtonRegAccount"
-                    Grid.Column="1"/>
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
     </Grid>
 </UserControl>

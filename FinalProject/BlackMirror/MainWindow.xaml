@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="DCS" Height="454.5" Width="867.5">
+        Title="DCS" Height="454.5" Width="867.5"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <Style x:Key="BlackAndWhite">
@@ -17,6 +18,7 @@
     </Window.Resources>
 
     <Window.Background>
+        
         <ImageBrush ImageSource="Pictures/MainLogo.jpg"/>
     </Window.Background>
 
@@ -31,7 +33,6 @@
         </Grid.ColumnDefinitions>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <Button x:Name="EnterMenuButton"
-                    Visibility="Visible"
                     Click="MainMenuEnterClick"
                     Style ="{StaticResource BlackAndWhite}"  
                     HorizontalAlignment="Left"
@@ -43,7 +44,6 @@
                     Command="{Binding UpdateViewCommand}" 
                     CommandParameter="Login" Margin="10,10,0,0"/>
         <Button x:Name="RegMenuButton"
-                    Visibility="Visible"
                     Click="MainMenuRegClick"
                     Style ="{StaticResource BlackAndWhite}" 
                     HorizontalAlignment="Center"

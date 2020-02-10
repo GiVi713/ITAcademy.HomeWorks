@@ -15,22 +15,49 @@
                 <ColumnDefinition Width="395*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="21*"/>
-                <RowDefinition Height="97*"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
+        
             <Image Source="C:\Users\Виктор\Desktop\Faces\image" 
                    Grid.Column="1"
-                   Grid.Row="1"/>
-            <TextBlock x:Name="Description"
+                   Grid.RowSpan="6"/>
+            <TextBlock x:Name="userName"
+                       Grid.Row="1" Grid.Column="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="220"
+                       Height="40"
                        Foreground="White"
-                       Grid.Column="2" Margin="45,36,188,20"
-                       Grid.Row="1"/>
-            <TextBlock x:Name="Name"
-                       Foreground="white"
-                       Grid.Row="2"
-                       Grid.Column="1" Margin="0,0,0,45"
-                       HorizontalAlignment="Center"/>
+                       FontSize="25"/>
+            <TextBlock x:Name="userAge"
+                       Grid.Row="2" Grid.Column="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="220"
+                       Height="40"
+                       Foreground="White"
+                        FontSize="25"/>
+            <TextBlock x:Name="userLocation"
+                       Grid.Row="3" Grid.Column="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="220"
+                       Height="40"
+                       Foreground="White"
+                        FontSize="25"/>
+            <TextBlock x:Name="userStatus"
+                       Grid.Row="4" Grid.Column="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="220"
+                       Height="40"
+                       Foreground="White"
+                       FontSize="25"/>
         </Grid>
     </Grid>
 </UserControl>
