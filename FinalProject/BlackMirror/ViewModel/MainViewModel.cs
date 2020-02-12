@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using BlackMirror.Commands;
+using BlackMirror.View;
 
 namespace BlackMirror.ViewModel
 {
@@ -11,7 +12,6 @@ namespace BlackMirror.ViewModel
 		{
 			UpdateViewCommand = new UpdateViewCommand(this);
 		}
-
 		public BaseViewModel SelectedViewModel
 		{
 			get { return _selectedViewModel; }

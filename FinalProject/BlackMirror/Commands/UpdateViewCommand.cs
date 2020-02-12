@@ -30,6 +30,12 @@ namespace BlackMirror.Commands
             var view = parameter.ToString();
             switch(view)
             {
+                case "Return":
+                    viewModel.SelectedViewModel = new MainViewModel();
+                    break;
+                case "Enter":
+                    viewModel.SelectedViewModel = new MainViewModel();
+                    break;
                 case "Registration":
                     viewModel.SelectedViewModel = new RegistrationViewModel();
                     break;
@@ -40,18 +46,6 @@ namespace BlackMirror.Commands
                     viewModel.SelectedViewModel = new UserMenuViewModel();
                     break;
             }
-            //if (str == "Registration")
-            //{
-            //    viewModel.SelectedViewModel = new RegistrationViewModel();
-            //}
-            //else if (str == "Login")
-            //{
-            //    viewModel.SelectedViewModel = new AccountViewModel();
-            //}
-            //else if (str == "EnterAcc")
-            //{
-            //    viewModel.SelectedViewModel = new UserMenuViewModel();
-            //}
         }
     }
 }

@@ -7,10 +7,12 @@
              xmlns:vw ="clr-namespace:BlackMirror.ViewModel"
              >
     <Application.Resources>
+        <DataTemplate DataType="{x:Type vw:MainViewModel}">
+            <views:MainView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type vw:RegistrationViewModel}">
             <views:HomeView/>
         </DataTemplate>
-
         <DataTemplate DataType="{x:Type vw:AccountViewModel}">
             <views:AccountView/>
         </DataTemplate>

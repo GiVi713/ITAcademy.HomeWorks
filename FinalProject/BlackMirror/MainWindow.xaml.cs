@@ -1,17 +1,8 @@
-﻿using BlackMirror.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlackMirror.Model;
+using BlackMirror.View;
+using BlackMirror.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BlackMirror
 {
@@ -26,17 +17,11 @@ namespace BlackMirror
             DataContext = new MainViewModel();
         }
 
-        private void MainMenuEnterClick(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void MainMenuRegClick(object sender, RoutedEventArgs e)
-        {
-        }
-        public void MainHide()
-        {
-            EnterMenuButton.Visibility = Visibility.Hidden;
-            RegMenuButton.Visibility = Visibility.Hidden;
+            HideElements hide = new HideElements();
+            hide.MainHide(MainButton);
+            hide.MainHide(MainText);
         }
     }
 }

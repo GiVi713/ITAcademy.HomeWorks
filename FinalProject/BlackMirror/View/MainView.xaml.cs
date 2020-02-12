@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using BlackMirror.ViewModel;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows;
+using BlackMirror.Model;
 
 namespace BlackMirror.View
 {
@@ -23,6 +13,38 @@ namespace BlackMirror.View
         public MainView()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
+        }
+
+        private void RegMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RegMenuButton.IsVisible == true)
+            {
+                RegMenuButton.Visibility = Visibility.Collapsed;
+                EnterMenuButton.Visibility = Visibility.Collapsed;
+            }
+            else
+                RegMenuButton.Visibility = Visibility.Visible;
+        }
+
+        private void EnterMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (EnterMenuButton.IsVisible == true)
+            {
+                EnterMenuButton.Visibility = Visibility.Collapsed;
+                RegMenuButton.Visibility = Visibility.Collapsed;
+            }
+            else
+                EnterMenuButton.Visibility = Visibility.Visible;
+        }
+
+        private void LogReturn_Click(object sender, RoutedEventArgs e)
+        {
+            if (EnterMenuButton.IsVisible == true && RegMenuButton.IsVisible == true)
+            {
+                EnterMenuButton.Visibility = Visibility.Visible;
+                RegMenuButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }

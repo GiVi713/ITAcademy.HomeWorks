@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlackMirror
 {
-    class DataBase
+    public class DataBase
     {
         MySqlConnection connection = new MySqlConnection("server =localhost;port=3306;username=root;password=root;database=users");
        

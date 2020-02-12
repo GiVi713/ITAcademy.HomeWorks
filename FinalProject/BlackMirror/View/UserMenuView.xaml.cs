@@ -1,18 +1,8 @@
-﻿using BlackMirror.ViewModel;
-using System;
+﻿using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.IO;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BlackMirror.View
 {
@@ -21,10 +11,38 @@ namespace BlackMirror.View
     /// </summary>
     public partial class UserMenuView : UserControl
     {
+        static private List<string> _fill = AccountView.list;
+        private List<object> _data = new List<object>();
         public UserMenuView()
         {
             InitializeComponent();
-            userName.Text = "sdgsdg sdg sdg ";
+            DataBase dataBase = new DataBase();
+            MySqlCommand command = new MySqlCommand("Select `Name`, `Location`,`BirthDate`,`Photo` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
+            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = _fill[0];
+            dataBase.openConnection();
+            
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                byte[] data = (byte[])reader[3];
+                using (MemoryStream ms = new MemoryStream(data))
+                {
+                    var imageSource = new BitmapImage();
+                    imageSource.BeginInit();
+                    imageSource.StreamSource = ms;
+                    imageSource.CacheOption = BitmapCacheOption.OnLoad;
+                    imageSource.EndInit();
+                    userPhoto.Source = imageSource;
+                }
+                _data.Add(reader["Name"]);
+                _data.Add(reader["Location"]);
+                _data.Add(reader["BirthDate"]);
+            }
+            userName.Text = (string)_data[0];
+            userLocation.Text = (string)_data[1];
+            userAge.Text = (string)_data[2];
+            reader.Close();
+            dataBase.closeConnection();
         }
     }
 }

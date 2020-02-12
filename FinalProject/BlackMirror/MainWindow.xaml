@@ -23,39 +23,30 @@
     </Window.Background>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="39*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="149"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="EnterMenuButton"
-                    Click="MainMenuEnterClick"
-                    Style ="{StaticResource BlackAndWhite}"  
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                Height="50"
-                Width="125"
-                    Content="Войти" 
-                    ToolTip="Войти в свою учетную запись"
-                    Command="{Binding UpdateViewCommand}" 
-                    CommandParameter="Login" Margin="10,10,0,0"/>
-        <Button x:Name="RegMenuButton"
-                    Click="MainMenuRegClick"
-                    Style ="{StaticResource BlackAndWhite}" 
-                    HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                    Content="Регистрация" 
-                    ToolTip="Зарегистрироваться"
-                    Command="{Binding UpdateViewCommand}" 
-                    CommandParameter="Registration" Grid.Row="1" Height="50" Width="125" />
-        <TextBlock Text="Единая система контроля порядочности"
-                   Grid.Column="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Style ="{StaticResource BlackAndWhite}" Height="28"/>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+        <Button
+            x:Name="MainButton"
+            Click="Button_Click"
+            Width="100"
+            Height="50"
+            Command ="{Binding UpdateViewCommand}"
+            CommandParameter="Enter"
+            VerticalAlignment="Bottom"
+            Margin="40"
+            Content="ОK"
+            Style="{StaticResource BlackAndWhite}"/>
+        <TextBlock
+            x:Name="MainText"
+            Style="{StaticResource BlackAndWhite}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Foreground="White"
+            Margin="35"
+            Width="250"
+            Height="290"
+            TextWrapping="Wrap"
+            TextAlignment="Center"
+            FontSize="19"
+            Text="Мы рады приветсвовать вас в нашей системе контроля порядочности. Система создана для улучшения натсроения внутри страны и выявления недобропорядочных граждан. Нажмите на кнопку чтобы продолжить"/>
     </Grid>
 </Window>

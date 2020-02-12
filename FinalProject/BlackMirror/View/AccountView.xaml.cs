@@ -1,20 +1,10 @@
-﻿using BlackMirror.ViewModel;
+﻿using BlackMirror.Model;
+using BlackMirror.ViewModel;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BlackMirror.View
 {
@@ -23,7 +13,7 @@ namespace BlackMirror.View
     /// </summary>
     public partial class AccountView : UserControl
     {
-        
+        public static List<string> list = new List<string>();
         public AccountView()
         {
             InitializeComponent();
@@ -33,6 +23,7 @@ namespace BlackMirror.View
         {
             var loginUser = loginField.Text;
             var passUser = passField.Password;
+            list.Add(loginUser);
 
             DataBase db = new DataBase();
             DataTable table = new DataTable();
@@ -57,13 +48,12 @@ namespace BlackMirror.View
         }
         private void Hide()
         {
-            MainWindow window = new MainWindow();
-            window.MainHide();
-            loginField.Visibility = Visibility.Hidden;
-            passField.Visibility = Visibility.Hidden;
-            login.Visibility = Visibility.Hidden;
-            pass.Visibility = Visibility.Hidden;
-            Enter.Visibility = Visibility.Hidden;
+            HideElements hide = new HideElements();
+            hide.MainHide(Enter);
+            hide.MainHide(pass);
+            hide.MainHide(loginField);
+            hide.MainHide(passField);
+            hide.MainHide(login);
         }
     }
 }
