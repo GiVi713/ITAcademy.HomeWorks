@@ -22,5 +22,17 @@ namespace BlackMirror.Model
         {
             password.Visibility = Visibility.Collapsed;
         }
+        public void MainHide(StackPanel stackPanel)
+        {
+            stackPanel.Visibility = Visibility.Collapsed;
+        }
+        public void MainHide(ListBox listBox)
+        {
+            listBox.Visibility = Visibility.Collapsed;
+        }
+        public void MainHide(Image image)
+        {
+            image.Visibility = Visibility.Collapsed;
+        }
     }
 }

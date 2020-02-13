@@ -45,6 +45,15 @@ namespace BlackMirror.Commands
                 case "EnterAcc":
                     viewModel.SelectedViewModel = new UserMenuViewModel();
                     break;
+                case "Profile":
+                    viewModel.SelectedViewModel = new MainViewModel();
+                    break;
+                case "Search":
+                    viewModel.SelectedViewModel = new MainViewModel();
+                    break;
+                case "Services":
+                    viewModel.SelectedViewModel = new MainViewModel();
+                    break;
             }
         }
     }

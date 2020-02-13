@@ -54,6 +54,14 @@ namespace BlackMirror.View
             hide.MainHide(loginField);
             hide.MainHide(passField);
             hide.MainHide(login);
+            hide.MainHide(LogReturn);
+        }
+
+        private void LogReturn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            DataContext = new MainViewModel();
+            LogReturn.Visibility = Visibility.Collapsed;
         }
     }
 }

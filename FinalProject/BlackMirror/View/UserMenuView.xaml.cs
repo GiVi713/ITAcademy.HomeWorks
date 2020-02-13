@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BlackMirror.Model;
+using BlackMirror.ViewModel;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
@@ -43,6 +45,16 @@ namespace BlackMirror.View
             userAge.Text = (string)_data[2];
             reader.Close();
             dataBase.closeConnection();
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+            HideElements hide = new HideElements();
+            hide.MainHide(Buttons);
+            hide.MainHide(List);
+            hide.MainHide(UserData);
+            hide.MainHide(userPhoto);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BlackMirror.Model;
+using BlackMirror.ViewModel;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -63,10 +65,13 @@ namespace BlackMirror.View
             command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
             command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
 
-            db.openConnection(); 
+            db.openConnection();
             if (command.ExecuteNonQuery() == 1)
+            {
+                Reg.Visibility = Visibility.Collapsed;
                 MessageBox.Show("Аккаунт был создан");
-            
+            }
+
             else
                 MessageBox.Show("Аккаунт не был создан");
             db.closeConnection();
@@ -91,6 +96,29 @@ namespace BlackMirror.View
             }
             else
                 return false ;
+        }
+
+        private void RegReturn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            DataContext = new MainViewModel();
+            RegReturn.Visibility = Visibility.Collapsed;
+        }
+        private void Hide()
+        {
+            HideElements hide = new HideElements();
+            hide.MainHide(login);
+            hide.MainHide(logbox);
+            hide.MainHide(passbox);
+            hide.MainHide(password);
+            hide.MainHide(name);
+            hide.MainHide(nameBox);
+            hide.MainHide(age);
+            hide.MainHide(ageBox);
+            hide.MainHide(location);
+            hide.MainHide(locBox);
+            hide.MainHide(Reg);
+            hide.MainHide(RegReturn);
         }
     }
 }

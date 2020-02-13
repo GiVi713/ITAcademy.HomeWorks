@@ -62,7 +62,22 @@
                     ToolTip="Войти в свою учетную запись"
                     Command="{Binding UpdateViewCommand}" 
                     CommandParameter="EnterAcc" 
-                    Click="ButtonEnterAccount" Grid.ColumnSpan ="2" Grid.Column="1" Margin="264,35,263,49"/>
-        
+                    Click="ButtonEnterAccount" Grid.ColumnSpan ="2" 
+                    Grid.Column="1" Margin="264,35,263,49"/>
+        <Button x:Name="LogReturn"
+                BorderBrush="Black"
+                Click="LogReturn_Click"
+                Grid.Column="2"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Background="Black"
+                Command="{Binding UpdateViewCommand}" 
+                CommandParameter="Return"
+                Width="80"
+                Height="40"
+                Margin="15">
+            <Image Source="C:\Users\Виктор\Desktop\Back.png" Height="40" Width="79"/>
+        </Button>
+
     </Grid>
 </UserControl>

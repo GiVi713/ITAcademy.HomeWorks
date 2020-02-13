@@ -37,14 +37,5 @@ namespace BlackMirror.View
             else
                 EnterMenuButton.Visibility = Visibility.Visible;
         }
-
-        private void LogReturn_Click(object sender, RoutedEventArgs e)
-        {
-            if (EnterMenuButton.IsVisible == true && RegMenuButton.IsVisible == true)
-            {
-                EnterMenuButton.Visibility = Visibility.Visible;
-                RegMenuButton.Visibility = Visibility.Visible;
-            }
-        }
     }
 }

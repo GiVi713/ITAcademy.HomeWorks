@@ -23,7 +23,7 @@
             <ColumnDefinition Width="277*"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
         <TextBlock x:Name="login"
                    Margin="10,10,0,0" 
                    HorizontalAlignment="Left"
@@ -134,5 +134,19 @@
                     CommandParameter="RegAcc" Width="124"
                     Click="ButtonRegAccount"
                     Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button x:Name="RegReturn"
+                BorderBrush="Black"
+                Click="RegReturn_Click"
+                Grid.Column="3"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Background="Black"
+                Command="{Binding UpdateViewCommand}" 
+                CommandParameter="Return"
+                Width="80"
+                Height="40"
+                Margin="15">
+            <Image Source="C:\Users\Виктор\Desktop\Back.png" Height="40" Width="80"/>
+        </Button>
     </Grid>
 </UserControl>

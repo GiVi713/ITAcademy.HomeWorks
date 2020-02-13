@@ -85,6 +85,7 @@
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserMenuViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
@@ -160,7 +161,9 @@
   <ItemGroup>
     <Resource Include="Pictures\Reg.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pictures\Back.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Mainlogo.jpg" />
   </ItemGroup>
