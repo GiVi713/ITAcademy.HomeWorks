@@ -22,16 +22,16 @@ namespace BlackMirror.View
     /// <summary>
     /// Interaction logic for OtherUserMenuView.xaml
     /// </summary>
-    public partial class OtherUserMenuView : UserControl, Iinterface1
+    public partial class OtherUserMenuView : UserControl
     {
         private List<object> _data = new List<object>();
-        public string Log { get; set; }
+        string log = Search.Log;
         public OtherUserMenuView()
         {
             InitializeComponent();
             DataBase dataBase = new DataBase();
             MySqlCommand command = new MySqlCommand("Select `Name`, `Location`,`Age`,`Photo` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = Log;
+            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = log;
             dataBase.openConnection();
 
             MySqlDataReader reader = command.ExecuteReader();

@@ -11,11 +11,11 @@ namespace BlackMirror.View
     /// <summary>
     /// Interaction logic for Search.xaml
     /// </summary>
-    public partial class Search : UserControl, Iinterface1
+    public partial class Search : UserControl
     {
-        public string Log { get; set; }
         private List<object> _names = new List<object>();
         public static List<object> logins = new List<object>();
+        public static string Log;
         public Search()
         {
             InitializeComponent();
