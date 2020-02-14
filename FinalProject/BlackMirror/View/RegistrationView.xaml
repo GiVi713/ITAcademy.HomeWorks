@@ -131,7 +131,8 @@
                     Content="Зарегистрироваться" 
                     ToolTip="Зарегистрироваться"
                     Command="{Binding UpdateViewCommand}" 
-                    CommandParameter="RegAcc" Width="124"
+                    CommandParameter="RegAcc" 
+                    Width="128"
                     Click="ButtonRegAccount"
                     Grid.Column="1" Grid.ColumnSpan="3"/>
         <Button x:Name="RegReturn"

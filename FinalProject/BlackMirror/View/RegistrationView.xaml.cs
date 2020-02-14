@@ -1,9 +1,11 @@
 ﻿using BlackMirror.Model;
 using BlackMirror.ViewModel;
+using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,7 +59,7 @@ namespace BlackMirror.View
                 return;
 
             DataBase db = new DataBase();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `BirthDate`, `Location`) VALUES (@name, @login, @pass, @age, @location)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`,`LoadPhoto`) VALUES (@name, @login, @pass, @age, @location, @photo)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = logbox.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text;
@@ -102,7 +104,7 @@ namespace BlackMirror.View
         {
             Hide();
             DataContext = new MainViewModel();
-            RegReturn.Visibility = Visibility.Collapsed;
+            //RegReturn.Visibility = Visibility.Collapsed;
         }
         private void Hide()
         {

@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="BlackMirror.View.Search"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BlackMirror.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ContentControl Content="{Binding SelectedViewModel}" 
+                        Grid.ColumnSpan="3" 
+                        Grid.RowSpan="4"/>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <TextBox
+                x:Name="searchBox"
+                Grid.Column="1"
+                Height="30"
+                Margin="50,20"
+                VerticalAlignment="Bottom"/>
+            <Button x:Name="SearchButton"
+                Grid.Column="1"
+                Grid.Row="4"
+                Height="50"
+                Width="128"
+                Content="Поиск"
+                Command="{Binding UpdateViewCommand}"
+                CommandParameter="Search"
+                Click="SearchButton_Click"/>
+            <Button x:Name="SearchResult1"
+                    Grid.Column="3"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="5,5"
+                    Content="Перейти"
+                    Click="SearchResult1_Click"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="References"/>
+            <Button x:Name="SearchResult2"
+                    Grid.Column="3"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="5,5"
+                    Content="Перейти"
+                    Click="SearchResult2_Click"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="References"/>
+            <ListView x:Name="Results"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Grid.RowSpan="3"
+                      FontSize="27"/>
+        </Grid>
+    </Grid>
+</UserControl>

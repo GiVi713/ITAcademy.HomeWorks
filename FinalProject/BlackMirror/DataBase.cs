@@ -9,7 +9,7 @@ namespace BlackMirror
 {
     public class DataBase
     {
-        MySqlConnection connection = new MySqlConnection("server =localhost;port=3306;username=root;password=root;database=users");
+        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=users");
        
         public void openConnection()
         {

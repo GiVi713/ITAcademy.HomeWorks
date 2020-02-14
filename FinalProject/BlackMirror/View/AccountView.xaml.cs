@@ -61,7 +61,6 @@ namespace BlackMirror.View
         {
             Hide();
             DataContext = new MainViewModel();
-            LogReturn.Visibility = Visibility.Collapsed;
         }
     }
 }

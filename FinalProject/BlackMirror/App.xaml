@@ -19,5 +19,11 @@
     <DataTemplate DataType="{x:Type vw:UserMenuViewModel}">
       <views:UserMenuView />
     </DataTemplate>
-  </Application.Resources>
+    <DataTemplate DataType="{x:Type vw:SearchViewModel}">
+      <views:Search/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw:OtherUserMenuViewModel}">
+      <views:OtherUserMenuView/>
+    </DataTemplate>
+    </Application.Resources>
 </Application>

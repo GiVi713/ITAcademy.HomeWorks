@@ -1,29 +1,39 @@
 ﻿using BlackMirror.Model;
 using BlackMirror.ViewModel;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace BlackMirror.View
 {
     /// <summary>
-    /// Interaction logic for UserMenuView.xaml
+    /// Interaction logic for OtherUserMenuView.xaml
     /// </summary>
-    public partial class UserMenuView : UserControl
+    public partial class OtherUserMenuView : UserControl, Iinterface1
     {
-        static private List<string> _fill = AccountView.list;
         private List<object> _data = new List<object>();
-        private static int _counter = 0;
-        public UserMenuView()
+        public string Log { get; set; }
+        public OtherUserMenuView()
         {
             InitializeComponent();
             DataBase dataBase = new DataBase();
             MySqlCommand command = new MySqlCommand("Select `Name`, `Location`,`Age`,`Photo` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = _fill[_counter];
+            command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = Log;
             dataBase.openConnection();
-            
+
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -47,8 +57,24 @@ namespace BlackMirror.View
             reader.Close();
             dataBase.closeConnection();
         }
+       
+        private void GoProfile_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+        }
 
-        private void Exit_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void GoSearch_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+            HideElements hide = new HideElements();
+            Search search = new Search();
+            search.ShowButtons();
+            hide.MainHide(List);
+            hide.MainHide(UserData);
+            hide.MainHide(userPhoto);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
             HideElements hide = new HideElements();
@@ -56,21 +82,6 @@ namespace BlackMirror.View
             hide.MainHide(List);
             hide.MainHide(UserData);
             hide.MainHide(userPhoto);
-            _counter++;
-        }
-
-        private void GoSearch_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            DataContext = new MainViewModel();
-            HideElements hide = new HideElements();
-            hide.MainHide(List);
-            hide.MainHide(UserData);
-            hide.MainHide(userPhoto);
-        }
-
-        private void GoProfile_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            DataContext = new MainViewModel();
         }
     }
 }

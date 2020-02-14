@@ -46,13 +46,13 @@ namespace BlackMirror.Commands
                     viewModel.SelectedViewModel = new UserMenuViewModel();
                     break;
                 case "Profile":
-                    viewModel.SelectedViewModel = new MainViewModel();
+                    viewModel.SelectedViewModel = new UserMenuViewModel();
                     break;
                 case "Search":
-                    viewModel.SelectedViewModel = new MainViewModel();
+                    viewModel.SelectedViewModel = new SearchViewModel();
                     break;
-                case "Services":
-                    viewModel.SelectedViewModel = new MainViewModel();
+                case "References":
+                    viewModel.SelectedViewModel = new OtherUserMenuViewModel();
                     break;
             }
         }
