@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ContentControl Content="{Binding SelectedViewModel}" 
-                        Grid.ColumnSpan="3" 
+                       
                         Grid.RowSpan="4"/>
         <Grid>
         <Grid.ColumnDefinitions>
@@ -38,9 +38,8 @@
                 Command="{Binding UpdateViewCommand}"
                 CommandParameter="Search"
                 Click="SearchButton_Click"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="3">
             <Button x:Name="SearchResult1"
-                    Grid.Column="3"
-                    Grid.Row="1"
                     VerticalAlignment="Top"
                     Height="35"
                     Width="100"
@@ -51,8 +50,6 @@
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="References"/>
             <Button x:Name="SearchResult2"
-                    Grid.Column="3"
-                    Grid.Row="1"
                     VerticalAlignment="Bottom"
                     Height="35"
                     Width="100"
@@ -62,6 +59,37 @@
                     Click="SearchResult2_Click"
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="References"/>
+            <Button x:Name="SearchResult3"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="5,5"
+                    Content="Перейти"
+                    Click="SearchResult3_Click" 
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="References"/>  
+            <Button x:Name="SearchResult4"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="5,5"
+                    Content="Перейти"
+                    Click="SearchResult4_Click" 
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="References"/>  
+           <Button x:Name="SearchResult5"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="5,5"
+                    Content="Перейти"
+                    Click="SearchResult5_Click" 
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="References"/>
+            </StackPanel>
             <ListView x:Name="Results"
                       Grid.Column="1"
                       Grid.Row="1"

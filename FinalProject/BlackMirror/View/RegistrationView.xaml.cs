@@ -59,10 +59,10 @@ namespace BlackMirror.View
                 return;
 
             DataBase db = new DataBase();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`,`LoadPhoto`) VALUES (@name, @login, @pass, @age, @location, @photo)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`) VALUES (@name, @login, @pass, @age, @location)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = logbox.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text ;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = nameBox.Text;
             command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
             command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
@@ -104,7 +104,6 @@ namespace BlackMirror.View
         {
             Hide();
             DataContext = new MainViewModel();
-            //RegReturn.Visibility = Visibility.Collapsed;
         }
         private void Hide()
         {

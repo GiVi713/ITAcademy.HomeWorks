@@ -25,12 +25,12 @@ namespace BlackMirror.View
     public partial class OtherUserMenuView : UserControl
     {
         private List<object> _data = new List<object>();
-        string log = Search.Log;
+        string log = Search.Log; DataBase dataBase = new DataBase();
         public OtherUserMenuView()
         {
             InitializeComponent();
-            DataBase dataBase = new DataBase();
-            MySqlCommand command = new MySqlCommand("Select `Name`, `Location`,`Age`,`Photo` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
+           
+            MySqlCommand command = new MySqlCommand("Select `Name`, `Location`,`Age`,`Photo`,`PointsCount`,`Raiting` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
             command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = log;
             dataBase.openConnection();
 
@@ -50,38 +50,36 @@ namespace BlackMirror.View
                 _data.Add(reader["Name"]);
                 _data.Add(reader["Location"]);
                 _data.Add(reader["Age"]);
+                _data.Add(reader["PointsCount"]);
+                _data.Add(reader["Raiting"]);
             }
             userName.Text = (string)_data[0];
             userLocation.Text = (string)_data[1];
             userAge.Text = (string)_data[2];
-            reader.Close();
             dataBase.closeConnection();
+            reader.Close();
         }
-       
-        private void GoProfile_Click(object sender, RoutedEventArgs e)
+        private void SetOpinion_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new MainViewModel();
-        }
-
-        private void GoSearch_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new MainViewModel();
-            HideElements hide = new HideElements();
-            Search search = new Search();
-            search.ShowButtons();
-            hide.MainHide(List);
-            hide.MainHide(UserData);
-            hide.MainHide(userPhoto);
+            //if(Raiting.Text.Length > 0 && Raiting.Text == "1")
+            //dataBase.openConnection();
+            //MySqlCommand co = new MySqlCommand("UPDATE `users` SET (`PointsCount` = @count,`Raiting` = @rait WHERE `Login` = @uL", dataBase.getConnection());
+            //co.Parameters.Add("@rait", MySqlDbType.Double).Value = Raiting.Text;
+            //co.Parameters.Add("@uL", MySqlDbType.Double).Value = log;
+            //co.Parameters.Add("@count", MySqlDbType.Double).Value = +1;
+            //co.ExecuteNonQuery();
+            //dataBase.closeConnection();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void SetRaiting_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new MainViewModel();
-            HideElements hide = new HideElements();
-            hide.MainHide(Buttons);
-            hide.MainHide(List);
-            hide.MainHide(UserData);
-            hide.MainHide(userPhoto);
+            dataBase.openConnection();
+            MySqlCommand co = new MySqlCommand("UPDATE `users` SET `PointsCount` = @count,`Raiting` = @rait WHERE `Login` = @uL", dataBase.getConnection());
+            co.Parameters.Add("@rait", MySqlDbType.VarChar).Value = _data[4] + Raiting.Text;
+            co.Parameters.Add("@uL", MySqlDbType.VarChar).Value = log;
+            co.Parameters.Add("@count", MySqlDbType.VarChar).Value = (int)_data[3] + 1;
+            co.ExecuteNonQuery();
+            dataBase.closeConnection();
         }
     }
 }

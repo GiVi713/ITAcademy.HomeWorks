@@ -27,19 +27,22 @@ namespace BlackMirror.View
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                byte[] data = (byte[])reader[3];
-                using (MemoryStream ms = new MemoryStream(data))
-                {
-                    var imageSource = new BitmapImage();
-                    imageSource.BeginInit();
-                    imageSource.StreamSource = ms;
-                    imageSource.CacheOption = BitmapCacheOption.OnLoad;
-                    imageSource.EndInit();
-                    userPhoto.Source = imageSource;
-                }
                 _data.Add(reader["Name"]);
                 _data.Add(reader["Location"]);
                 _data.Add(reader["Age"]);
+                if (reader[3] != null)
+                {
+                byte[] data = (byte[])reader[3];
+                    using (MemoryStream ms = new MemoryStream(data))
+                    {
+                        var imageSource = new BitmapImage();
+                        imageSource.BeginInit();
+                        imageSource.StreamSource = ms;
+                        imageSource.CacheOption = BitmapCacheOption.OnLoad;
+                        imageSource.EndInit();
+                        userPhoto.Source = imageSource;
+                    }
+                }
             }
             userName.Text = (string)_data[0];
             userLocation.Text = (string)_data[1];
@@ -47,7 +50,7 @@ namespace BlackMirror.View
             reader.Close();
             dataBase.closeConnection();
         }
-
+         
         private void Exit_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             DataContext = new MainViewModel();

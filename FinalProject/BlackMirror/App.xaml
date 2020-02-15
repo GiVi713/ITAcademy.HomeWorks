@@ -25,5 +25,8 @@
     <DataTemplate DataType="{x:Type vw:OtherUserMenuViewModel}">
       <views:OtherUserMenuView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vw:ServicesViewModel}">
+      <views:ServicesView/>
+    </DataTemplate>
     </Application.Resources>
 </Application>
