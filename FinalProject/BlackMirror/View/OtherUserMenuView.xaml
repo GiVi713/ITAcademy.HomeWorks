@@ -61,6 +61,7 @@
             </ListBox>
             <ListBox x:Name="UserData" Grid.RowSpan ="4" Grid.Column="3" Margin="5,5,5,15" Height="180" Background="Black" Grid.Row="1">
                 <TextBlock x:Name="userName"
+                       TextAlignment="Center"
                        HorizontalAlignment="Stretch"
                        Width="260"
                        Height="40"
@@ -68,17 +69,20 @@
                        FontSize="25"/>
                 <TextBlock x:Name="userAge"
                            HorizontalAlignment="Stretch"
+                           TextAlignment="Center"
                        Width="260"
                        Height="40"
                        Foreground="White"
                        FontSize="25"/>
                 <TextBlock x:Name="userLocation"
+                           TextAlignment="Center"
                        HorizontalAlignment="Stretch"
                        Width="260"
                        Height="40"
                        Foreground="White"
                        FontSize="25"/>
                 <TextBlock x:Name="userStatus"
+                           TextAlignment="Center"
                        HorizontalAlignment="Stretch"
                        Width="260"
                        Height="40"

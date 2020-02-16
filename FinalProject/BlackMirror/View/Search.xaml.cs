@@ -20,14 +20,15 @@ namespace BlackMirror.View
         {
             InitializeComponent();
             HideButtons();
+            
         }
         private void SearchButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
             DataBase dataBase = new DataBase();
             MySqlCommand command = new MySqlCommand("Select `Name`,`Login` FROM `users` WHERE `Name` LIKE @uL", dataBase.getConnection());
+            
             command.Parameters.Add("@ul", MySqlDbType.VarChar).Value = searchBox.Text;
-
             dataBase.openConnection();
 
             MySqlDataReader reader = command.ExecuteReader();

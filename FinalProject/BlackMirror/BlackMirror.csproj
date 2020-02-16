@@ -76,12 +76,13 @@
     </ApplicationDefinition>
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="DataBase.cs" />
-    <Compile Include="Interface1.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\CheckText.cs" />
     <Compile Include="Model\HideElements.cs" />
-    <Compile Include="Model\SetRaiting.cs" />
+    <Compile Include="Model\UserData.cs" />
+    <Compile Include="Model\Raiting.cs" />
     <Compile Include="Model\ShowElements.cs" />
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />

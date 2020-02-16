@@ -14,16 +14,19 @@ namespace BlackMirror.View
     public partial class AccountView : UserControl
     {
         public static List<string> list = new List<string>();
+        public static string currentLogin = "";
         public AccountView()
         {
             InitializeComponent();
         }
         
-        private void ButtonEnterAccount(object sender, RoutedEventArgs e)
+        public void ButtonEnterAccount(object sender, RoutedEventArgs e)
         {
             var loginUser = loginField.Text;
             var passUser = passField.Password;
             list.Add(loginUser);
+            currentLogin = loginField.Text;
+            
 
             DataBase db = new DataBase();
             DataTable table = new DataTable();
