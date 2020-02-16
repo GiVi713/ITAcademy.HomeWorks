@@ -25,6 +25,7 @@ namespace BlackMirror.Model
             command.Parameters.Add("@rai", MySqlDbType.Int32).Value = data.GetRaiting(log) + point;
             command.Parameters.Add("@point", MySqlDbType.Int32).Value = data.GetPoints(log) + 1;
             command.ExecuteNonQuery();
+            MessageBox.Show($"Ваша оценка пользователю {log}:  {point}");
             dataBase.closeConnection();
         }
         // Check po loginy!!!!!

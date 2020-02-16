@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Model\CheckText.cs" />
     <Compile Include="Model\HideElements.cs" />
+    <Compile Include="Model\ImageData.cs" />
     <Compile Include="Model\UserData.cs" />
     <Compile Include="Model\Raiting.cs" />
     <Compile Include="Model\ShowElements.cs" />
@@ -193,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Mainlogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\ProfileImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

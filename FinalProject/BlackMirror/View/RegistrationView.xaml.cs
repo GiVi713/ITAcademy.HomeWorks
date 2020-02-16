@@ -1,5 +1,6 @@
 ﻿using BlackMirror.Model;
 using BlackMirror.ViewModel;
+using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -10,6 +11,10 @@ namespace BlackMirror.View
 {
     public partial class HomeView : UserControl
     {
+        string _data = "";
+        DataBase db = new DataBase();
+        ImageData load = new ImageData();
+        
         public HomeView()
         {
             InitializeComponent();
@@ -41,18 +46,18 @@ namespace BlackMirror.View
             if (CheckLogin())
                 return;
             
-            DataBase db = new DataBase();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`) VALUES (@name, @login, @pass, @age, @location)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`,`Photo`) VALUES (@name, @login, @pass, @age, @location, @photo)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = logbox.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text ;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = nameBox.Text;
             command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
             command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
+            command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = _data;
             CheckText text = new CheckText();
 
             db.openConnection();
-            if (command.ExecuteNonQuery() == 1 && text.CheckName(nameBox.Text))
+            if (command.ExecuteNonQuery() == 1)
             {
                 Reg.Visibility = Visibility.Collapsed;
                 MessageBox.Show("Аккаунт был создан");
@@ -63,10 +68,22 @@ namespace BlackMirror.View
             db.closeConnection();
         }
 
+        private void RegReturn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            DataContext = new MainViewModel();
+        }
+
+        private void UploadPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.ShowDialog();
+            _data = dialog.FileName;
+            load.CheckImage(_data);
+        }
 
         public Boolean CheckLogin()
         {
-            DataBase db = new DataBase();
             DataTable table = new DataTable();
 
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `Login` = @uL", db.getConnection());
@@ -82,13 +99,7 @@ namespace BlackMirror.View
                 return true;
             }
             else
-                return false ;
-        }
-
-        private void RegReturn_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            DataContext = new MainViewModel();
+                return false;
         }
         private void Hide()
         {

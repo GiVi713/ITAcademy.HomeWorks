@@ -22,7 +22,7 @@ namespace BlackMirror.View
             userName.Text = data.GetName();
             userLocation.Text = data.GetLocation();
             userAge.Text = data.GetAge();
-            userStatus.Text = rait.AverageRaiting();
+            //userStatus.Text = rait.AverageRaiting();
            
         }
          

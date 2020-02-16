@@ -135,6 +135,13 @@
                     Width="128"
                     Click="ButtonRegAccount"
                     Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button x:Name="UploadPhoto"
+                Content="Добавить фото"
+                Grid.Column="1"
+                Grid.Row="6"
+                Height="50"
+                Width="128"
+                Click="UploadPhoto_Click"/>
         <Button x:Name="RegReturn"
                 BorderBrush="Black"
                 Click="RegReturn_Click"
