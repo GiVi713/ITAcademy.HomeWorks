@@ -21,15 +21,13 @@ namespace BlackMirror.Model
         {
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("UPDATE `users` SET `Raiting` = @rai,`PointsCount` = @point WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = log;
-            command.Parameters.Add("@rai", MySqlDbType.Int32).Value = data.GetRaiting(log) + point;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = log;
+            command.Parameters.Add("@rai", MySqlDbType.VarChar).Value = data.GetRaiting(log) + point;
             command.Parameters.Add("@point", MySqlDbType.Int32).Value = data.GetPoints(log) + 1;
             command.ExecuteNonQuery();
             MessageBox.Show($"Ваша оценка пользователю {log}:  {point}");
             dataBase.closeConnection();
         }
-        // Check po loginy!!!!!
-
 
         public string AverageRaiting()
         {
@@ -37,7 +35,7 @@ namespace BlackMirror.Model
             decimal count = 0;
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("Select `Raiting`,`PointsCount` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = _log;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = _log;
 
             dataBase.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
@@ -64,7 +62,7 @@ namespace BlackMirror.Model
             int count = 0;
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("Select `Raiting`,`PointsCount` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = log;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = log;
 
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -90,7 +88,7 @@ namespace BlackMirror.Model
             string temp="";
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("Select `Access` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = _log;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = _log;
             command.Parameters.Add("@access", MySqlDbType.VarChar).Value = log + " ";
             
             MySqlDataReader reader = command.ExecuteReader();
@@ -127,7 +125,7 @@ namespace BlackMirror.Model
         {
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("UPDATE `users` SET `access` = @access WHERE `Login` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = _log;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = _log;
             command.Parameters.Add("@access", MySqlDbType.VarChar).Value = log + " ";
             command.ExecuteNonQuery();
             dataBase.closeConnection();

@@ -57,6 +57,9 @@ namespace BlackMirror.Commands
                 case "Services":
                     viewModel.SelectedViewModel = new ServicesViewModel();
                     break;
+                case "RegAcc":
+                    viewModel.SelectedViewModel = new UserMenuViewModel();
+                    break;
             }
         }
     }

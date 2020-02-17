@@ -8,9 +8,6 @@ using BlackMirror.Model;
 
 namespace BlackMirror.View
 {
-    /// <summary>
-    /// Interaction logic for Search.xaml
-    /// </summary>
     public partial class Search : UserControl
     {
         private List<object> _names = new List<object>();

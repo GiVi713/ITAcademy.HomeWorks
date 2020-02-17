@@ -20,50 +20,40 @@
         </Grid.ColumnDefinitions>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
         <TextBlock x:Name="login"
-                   Margin="10"
-                   Height="30"
-                   Width="150"
+                   Margin="100,10,100,80"
                    Grid.Row="1"
                    Text="Введите Login"
                    Foreground="White"
                    FontSize="16"
-                   HorizontalAlignment="Center" 
-                   Grid.Column="1"
-                   VerticalAlignment="Top"/>
+                   Grid.Column="1"/>
         <TextBlock x:Name="pass"
                    Foreground="White"
                    FontSize="16"
                    Text="Введите пароль"
                    Grid.Column="2"
                    Grid.Row="1"
-                   HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Height="30"
-                   Width="150"
-                   Margin="10"/>
+                   Margin="100,10,100,80"/>
         <TextBox 
                  x:Name="loginField"
                  Grid.Row="1"
                  FontSize="20"
                  Grid.Column="1"
-                 Width="250"
-                 Height="30"/>
+                 Margin="50,50,50,35"/>
         <PasswordBox x:Name="passField"
-                    Grid.Row="1" Grid.Column="2"
+                    Grid.Row="1"
+                    Grid.Column="2"
                     FontSize="20"
-                    Width="250"
-                    Height="30"/>
+                    Margin="50,50,50,35"/>
         <Button     x:Name="Enter"
                     Grid.Row="2"
-                    HorizontalAlignment="Center"
-                    Height="50"
-                    Width="124"
                     Content="Войти" 
                     ToolTip="Войти в свою учетную запись"
                     Command="{Binding UpdateViewCommand}" 
                     CommandParameter="EnterAcc" 
                     Click="ButtonEnterAccount" Grid.ColumnSpan ="2" 
-                    Grid.Column="1" Margin="264,35,263,49"/>
+                    Grid.Column="1" 
+                    Margin="264,35,263,49"/>
         <Button x:Name="LogReturn"
                 BorderBrush="Black"
                 Click="LogReturn_Click"
@@ -78,6 +68,5 @@
                 Margin="15">
             <Image Source="C:\Users\Виктор\Desktop\Back.png" Height="40" Width="79"/>
         </Button>
-
     </Grid>
 </UserControl>

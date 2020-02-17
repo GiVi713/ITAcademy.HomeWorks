@@ -8,8 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ContentControl Content="{Binding SelectedViewModel}" 
-                       
-                        Grid.RowSpan="4"/>
+                        Grid.RowSpan="5"/>
         <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

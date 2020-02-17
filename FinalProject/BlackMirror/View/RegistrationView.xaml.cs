@@ -13,6 +13,7 @@ namespace BlackMirror.View
     {
         string _data = "";
         DataBase db = new DataBase();
+        CheckText checkText = new CheckText();
         ImageData load = new ImageData();
         
         public HomeView()
@@ -22,27 +23,22 @@ namespace BlackMirror.View
 
         private void ButtonRegAccount(object sender, RoutedEventArgs e)
         {
-            if( logbox.Text == "")
-            {
-                MessageBox.Show("Логин не может быть пустым");
+            
+            if (checkText.CheckLogin(logbox.Text))
                 return;
-            }
-            if (name.Text == "")
-            {
-                MessageBox.Show("Нужно заполнить Имя и Фамилию");
-                return;
-            }
-            if (passbox.Text == "")
-            {
-                MessageBox.Show("Придумайте пароль");
-                return;
-            }
-            if (locBox.Text == "")
-            {
-                MessageBox.Show("Укажите свой город");
-                return;
-            }
 
+            if (checkText.CheckPass(passbox.Text))
+                return;
+
+            if (checkText.CheckName(nameBox.Text))
+                return;
+
+            if (checkText.CheckAge(ageBox.Text))
+                return;
+
+            if (checkText.CheckLocation(locBox.Text))
+                return;
+        
             if (CheckLogin())
                 return;
             
@@ -53,7 +49,7 @@ namespace BlackMirror.View
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = nameBox.Text;
             command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
             command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
-            command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = _data;
+            command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = load.CheckImage(_data);
             CheckText text = new CheckText();
 
             db.openConnection();
@@ -61,6 +57,7 @@ namespace BlackMirror.View
             {
                 Reg.Visibility = Visibility.Collapsed;
                 MessageBox.Show("Аккаунт был создан");
+                DataContext = new MainViewModel();
             }
 
             else
@@ -76,10 +73,7 @@ namespace BlackMirror.View
 
         private void UploadPhoto_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.ShowDialog();
-            _data = dialog.FileName;
-            load.CheckImage(_data);
+            load.LoadImage();
         }
 
         public Boolean CheckLogin()
@@ -116,6 +110,7 @@ namespace BlackMirror.View
             hide.MainHide(locBox);
             hide.MainHide(Reg);
             hide.MainHide(RegReturn);
+            hide.MainHide(UploadPhoto);
         }
     }
 }
