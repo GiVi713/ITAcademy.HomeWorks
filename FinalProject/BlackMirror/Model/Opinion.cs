@@ -23,7 +23,7 @@ namespace BlackMirror.Model
             {
                 temp = (string)reader[0];
             }
-            fText = $"{temp} о вас: \n {text} \n \n ";
+            fText = $"{temp} о вас: \n {text} \n* \n* ";
             string path = @"C:\Users\Виктор\Desktop\ITAcademy.HomeWorks\ITAcademy.HomeWorks\ITAcademy.HomeWorks\FinalProject\BlackMirror\Opinions";
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             dataBase.closeConnection();
@@ -41,6 +41,7 @@ namespace BlackMirror.Model
                 }
             }
         }
+
         public void UpdateAvailable(string log)
         {
             dataBase.openConnection();
@@ -50,6 +51,7 @@ namespace BlackMirror.Model
             command.ExecuteNonQuery();
             dataBase.closeConnection();
         }
+
         public bool CheckAvailable(string curLog, string log)
         {
             

@@ -139,14 +139,15 @@
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="Search"
                     Click="GoSearch_Click"/>
-                <Button
+                <Button x:Name="Service"
                     Height="50"
                     Background="Black"
                     Content="Услуги"
                     Foreground="White"
                     FontSize="15"
                     Command="{Binding UpdateViewCommand}"
-                    CommandParameter="Services"/>
+                    CommandParameter="Services"
+                    Click="Service_Click"/>
                 <Button x:Name="Exit"
                     Click="Exit_Click"
                     Height="50"

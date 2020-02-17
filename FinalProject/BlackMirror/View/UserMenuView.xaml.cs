@@ -10,15 +10,14 @@ using System.Windows.Media.Imaging;
 
 namespace BlackMirror.View
 {
-    /// <summary>
-    /// Interaction logic for UserMenuView.xaml
-    /// </summary>
     public partial class UserMenuView : UserControl
     {
-        
         Raiting rait = new Raiting();
         UserData data = new UserData();
         ImageData image = new ImageData();
+        HideElements hide = new HideElements();
+        ServicesView view = new ServicesView();
+        string _log = AccountView.currentLogin;
         public UserMenuView()
         {
             InitializeComponent();
@@ -33,7 +32,6 @@ namespace BlackMirror.View
         private void Exit_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
-            HideElements hide = new HideElements();
             hide.MainHide(Buttons);
             hide.MainHide(List);
             hide.MainHide(UserData);
@@ -43,7 +41,6 @@ namespace BlackMirror.View
         private void GoSearch_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
-            HideElements hide = new HideElements();
             hide.MainHide(List);
             hide.MainHide(UserData);
             hide.MainHide(userPhoto);
@@ -52,6 +49,15 @@ namespace BlackMirror.View
         private void GoProfile_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
+        }
+
+        private void Service_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+            hide.MainHide(List);
+            hide.MainHide(UserData);
+            hide.MainHide(userPhoto);
+            view.FillDataGrid(_log);
         }
     }
 }

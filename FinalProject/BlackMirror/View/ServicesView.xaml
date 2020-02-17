@@ -6,7 +6,34 @@
              xmlns:local="clr-namespace:BlackMirror.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <TextBlock Text="sdfshsghsf" FontSize="50" Foreground="Red"/>
+        <ContentControl Content="{Binding SelectedViewModel}" 
+                        Grid.ColumnSpan="6" 
+                        Grid.RowSpan="6"/>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="OpinionList"
+            Grid.Row="1" 
+            Grid.Column="2" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="4">
+        </ListBox>
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BlackMirror.View
 {
-    /// <summary>
-    /// Interaction logic for ServicesView.xaml
-    /// </summary>
     public partial class ServicesView : UserControl
     {
+
         public ServicesView()
         {
             InitializeComponent();
+        }
+        public void FillDataGrid(string log)
+        {
+            string path = @"C:\Users\Виктор\Desktop\ITAcademy.HomeWorks\ITAcademy.HomeWorks\ITAcademy.HomeWorks\FinalProject\BlackMirror\Opinions";
+            var MyList = new List<string>();
+            using (var streamReader = File.OpenText($"{path}\\{log}.txt"))
+            {
+                var s = string.Empty;
+                while ((s = streamReader.ReadLine()) != null)
+                    MyList.Add(s);
+            }
+            OpinionList.ItemsSource = MyList;
         }
     }
 }
