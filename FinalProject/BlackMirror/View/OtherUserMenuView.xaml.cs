@@ -26,7 +26,8 @@ namespace BlackMirror.View
         }
         private void SetOpinion_Click(object sender, RoutedEventArgs e)
         {
-
+            Opinion opinion = new Opinion();
+            opinion.CreateOpinion(Opinion.Text,log);
         }
 
         private void SetRaiting_Click(object sender, RoutedEventArgs e)
