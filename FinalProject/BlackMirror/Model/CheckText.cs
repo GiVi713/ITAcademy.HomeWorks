@@ -74,5 +74,18 @@ namespace BlackMirror.Model
                 return true;
             }
         }
+        public bool CheckRait(string text)
+        {
+            string pattern = "[0123456789]";
+            if (Regex.IsMatch(text, pattern) && text != "")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Можно ставить только от 0 до 10");
+                return false;
+            }
+        }
     }
 }

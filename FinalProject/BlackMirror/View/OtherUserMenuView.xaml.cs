@@ -11,6 +11,7 @@ namespace BlackMirror.View
         string log = Search.Log;
         Raiting rait = new Raiting();
         UserData data = new UserData();
+        CheckText Text = new CheckText();
         ImageData image = new ImageData();
 
         public OtherUserMenuView()
@@ -30,10 +31,12 @@ namespace BlackMirror.View
 
         private void SetRaiting_Click(object sender, RoutedEventArgs e)
         {
-            /// Тут нужно добавить проверку !!!!
-            int temp = Int32.Parse(Raiting.Text);
-            if (rait.CheckAvailable())
+            if (Text.CheckRait(Raiting.Text))
+            {
+                int temp = Int32.Parse(Raiting.Text);
+                if (rait.CheckAvailable())
                 rait.SetRaiting(temp);
+            }
         }
     }
 }
