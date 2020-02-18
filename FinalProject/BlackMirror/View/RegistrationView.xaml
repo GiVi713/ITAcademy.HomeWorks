@@ -31,7 +31,7 @@
             <TextBox x:Name="logbox"
                  FontSize="20"
                  Margin="0,10"/>
-            <TextBox x:Name="passbox"
+            <PasswordBox x:Name="passbox"
                  FontSize="20"
                  Margin="0,10"/>
             <TextBox x:Name="nameBox"

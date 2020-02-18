@@ -11,7 +11,6 @@ namespace BlackMirror.View
 {
     public partial class HomeView : UserControl
     {
-        string _data = "";
         DataBase db = new DataBase();
         CheckText checkText = new CheckText();
         ImageData load = new ImageData();
@@ -27,7 +26,7 @@ namespace BlackMirror.View
             if (checkText.CheckLogin(logbox.Text))
                 return;
 
-            if (checkText.CheckPass(passbox.Text))
+            if (checkText.CheckPass(passbox.Password))
                 return;
 
             if (checkText.CheckName(nameBox.Text))
@@ -45,11 +44,11 @@ namespace BlackMirror.View
             MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`Name`, `Login`, `Password`, `Age`, `Location`,`Photo`) VALUES (@name, @login, @pass, @age, @location, @photo)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = logbox.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Text ;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passbox.Password;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = nameBox.Text;
             command.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
             command.Parameters.Add("@location", MySqlDbType.VarChar).Value = locBox.Text;
-            command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = load.CheckImage(_data);
+            command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = load.GetImage();
             CheckText text = new CheckText();
 
             db.openConnection();
@@ -57,6 +56,8 @@ namespace BlackMirror.View
             {
                 Reg.Visibility = Visibility.Collapsed;
                 MessageBox.Show("Аккаунт был создан");
+                AccountView.currentLogin = logbox.Text;
+                Hide();
                 DataContext = new MainViewModel();
             }
 

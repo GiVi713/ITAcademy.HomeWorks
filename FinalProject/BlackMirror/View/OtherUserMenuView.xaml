@@ -13,7 +13,7 @@
                         Grid.RowSpan="6"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="156"/>
+                <ColumnDefinition Width="170"/>
                 <ColumnDefinition Width="249*"/>
                 <ColumnDefinition Width="107*"/>
                 <ColumnDefinition Width="288*"/>
