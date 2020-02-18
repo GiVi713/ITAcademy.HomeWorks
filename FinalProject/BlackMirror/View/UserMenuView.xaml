@@ -142,7 +142,7 @@
                 <Button x:Name="Service"
                     Height="50"
                     Background="Black"
-                    Content="Услуги"
+                    Content="Отзывы обо мне"
                     Foreground="White"
                     FontSize="15"
                     Command="{Binding UpdateViewCommand}"

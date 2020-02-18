@@ -1,4 +1,5 @@
 ﻿using BlackMirror.Model;
+using BlackMirror.ViewModel;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace BlackMirror.View
             userStatus.Text = rait.AverageRaiting(log);
             ImageSourceConverter imgs = new ImageSourceConverter();
             userPhoto.SetValue(Image.SourceProperty, imgs.ConvertFromString(image.GetImage(log)));
+            LogReturn.Visibility = Visibility.Collapsed;
         }
         private void SetOpinion_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +40,27 @@ namespace BlackMirror.View
                 if (rait.CheckAvailable())
                 rait.SetRaiting(temp);
             }
+        }
+
+        private void OtherOpinion_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+            HideElements hide = new HideElements();
+            hide.MainHide(List);
+            hide.MainHide(UserData);
+            hide.MainHide(userPhoto);
+            hide.MainHide(Opinion);
+            hide.MainHide(Raiting);
+            hide.MainHide(SetRaiting);
+            hide.MainHide(SetOpinion);
+            hide.MainHide(OtherOpinion);
+            LogReturn.Visibility = Visibility.Visible;
+        }
+
+        private void LogReturn_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainViewModel();
+            LogReturn.Visibility = Visibility.Collapsed;
         }
     }
 }

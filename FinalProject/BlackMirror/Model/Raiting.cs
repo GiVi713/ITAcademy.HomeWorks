@@ -1,10 +1,5 @@
 ﻿using BlackMirror.View;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace BlackMirror.Model
@@ -12,11 +7,14 @@ namespace BlackMirror.Model
     public class Raiting
     {
         string log = Search.Log;
+        string spec = "0.0";
+        string _log = AccountView.currentLogin;
+        decimal sum = 0;
+        decimal count = 0;
+
         UserData data = new UserData();
         DataBase dataBase = new DataBase();
-        string _log = AccountView.currentLogin;
         
-
         public void SetRaiting(int point)
         {
             dataBase.openConnection();
@@ -31,8 +29,6 @@ namespace BlackMirror.Model
 
         public string AverageRaiting()
         {
-            decimal sum = 0;
-            decimal count = 0;
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("Select `Raiting`,`PointsCount` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = _log;
@@ -49,7 +45,7 @@ namespace BlackMirror.Model
             if (count != 0)
             {
                 decimal result = sum / count;
-                string output = result.ToString();
+                string output = result.ToString(spec);
                 return output;
             }
             else
@@ -58,8 +54,6 @@ namespace BlackMirror.Model
 
         public string AverageRaiting(string log)
         {
-            int sum = 0;
-            int count = 0;
             dataBase.openConnection();
             MySqlCommand command = new MySqlCommand("Select `Raiting`,`PointsCount` FROM `users` WHERE `Login` = @uL", dataBase.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = log;
@@ -75,7 +69,7 @@ namespace BlackMirror.Model
             if (count != 0)
             {
                 decimal result = sum / count;
-                string output = result.ToString();
+                string output = result.ToString(spec);
                 return output;
             }
             else
@@ -119,7 +113,6 @@ namespace BlackMirror.Model
                 return true;
             }
         }
-
 
         private void UpdateAccess()
         {

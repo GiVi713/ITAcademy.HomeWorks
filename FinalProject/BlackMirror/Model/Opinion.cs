@@ -8,8 +8,9 @@ namespace BlackMirror.Model
 {
     public class Opinion
     {
-        string _log = AccountView.currentLogin;
         DataBase dataBase = new DataBase();
+
+        string _log = AccountView.currentLogin;
         string fText = "";
         string temp = "";
 
@@ -23,7 +24,8 @@ namespace BlackMirror.Model
             {
                 temp = (string)reader[0];
             }
-            fText = $"{temp} о вас: \n {text} \n* \n* ";
+            fText = $"{temp} о вас: \n {text} \n*";
+
             string path = @"C:\Users\Виктор\Desktop\ITAcademy.HomeWorks\ITAcademy.HomeWorks\ITAcademy.HomeWorks\FinalProject\BlackMirror\Opinions";
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             dataBase.closeConnection();
@@ -35,7 +37,7 @@ namespace BlackMirror.Model
                 }
                 using (FileStream stream = new FileStream($"{path}\\{log}.txt", FileMode.OpenOrCreate))
                 {
-                    byte[] array = Encoding.Default.GetBytes(fText);
+                    byte[] array = Encoding.UTF8.GetBytes(fText);
                     stream.Write(array, 0, array.Length);
                     MessageBox.Show("Ваше мнение добавлено");
                 }

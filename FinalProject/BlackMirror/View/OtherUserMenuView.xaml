@@ -9,11 +9,11 @@
     <Grid>
         <ContentControl Content="{Binding SelectedViewModel}" 
                         Grid.Column="1"
-                        Grid.ColumnSpan="3" 
+                        Grid.ColumnSpan="4" 
                         Grid.RowSpan="6"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="156*"/>
+                <ColumnDefinition Width="156"/>
                 <ColumnDefinition Width="249*"/>
                 <ColumnDefinition Width="107*"/>
                 <ColumnDefinition Width="288*"/>
@@ -97,7 +97,8 @@
                     Grid.Row="5"
                     VerticalAlignment="Bottom"
                     Height="40" 
-                    Margin="0,10"/>
+                    Margin="0,10"
+                    Background="Aquamarine"/>
             <TextBox x:Name="Raiting"
                     FontSize="20"
                     Grid.Column="2"
@@ -116,7 +117,19 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="10"
-                    Height="40"/>
+                    Height="40"
+                    Background="Aquamarine"/>
+            <Button x:Name="OtherOpinion"
+                    Background="Green"
+                    Grid.Column="3"
+                    Grid.Row="6"
+                    VerticalAlignment="Bottom"
+                    Height="40"
+                    Margin="10,0,110,10"
+                    Content="Все мнения о пользователе"
+                    Click="OtherOpinion_Click"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="OtherOpin"/>
             <TextBox Name="Opinion"
                      Grid.Column="3"
                      Grid.Row="6"
@@ -125,6 +138,15 @@
                      TextWrapping="Wrap"
                      ToolTip="Здесь вы можете написать, что вы думаете об этом человеке."
                      VerticalAlignment="Top"/>
+            <Button x:Name="LogReturn"
+                Grid.Column="3"
+                Background="Black"
+                    Click="LogReturn_Click"
+                Command="{Binding UpdateViewCommand}" 
+                CommandParameter="References"
+                Margin="170,10,10,40">
+                <Image Source="C:\Users\Виктор\Desktop\Back.png" Height="40" Width="79"/>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

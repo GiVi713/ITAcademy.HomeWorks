@@ -28,5 +28,8 @@
     <DataTemplate DataType="{x:Type vw:ServicesViewModel}">
       <views:ServicesView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vw:OtherUserServiceViewModel}">
+      <views:OtherUserServiceView/>
+    </DataTemplate>
     </Application.Resources>
 </Application>
