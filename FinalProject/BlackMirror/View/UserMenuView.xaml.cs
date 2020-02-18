@@ -12,6 +12,7 @@ namespace BlackMirror.View
         UserData data = new UserData();
         ImageData image = new ImageData();
         HideElements hide = new HideElements();
+
         public UserMenuView()
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace BlackMirror.View
             userPhoto.SetValue(Image.SourceProperty, imgs.ConvertFromString(image.GetImage()));
         }
          
+
+        //Buttons
         private void Exit_Click(object sender,RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
@@ -30,6 +33,7 @@ namespace BlackMirror.View
             hide.MainHide(List);
             hide.MainHide(UserData);
             hide.MainHide(userPhoto);
+            AccountView.currentLogin = "";
         }
 
         private void GoSearch_Click(object sender, RoutedEventArgs e)

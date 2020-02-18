@@ -96,8 +96,6 @@
                 Height="35"    
                 Click="UploadPhoto_Click"/>
         </StackPanel>
-       
-        
         <Button x:Name="RegReturn"
                 BorderBrush="Black"
                 Click="RegReturn_Click"

@@ -30,7 +30,14 @@
                   Margin="5,60"
                    Grid.Column="1"
                    Grid.RowSpan="6"/>
-            <ListBox x:Name="List" Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Margin="5,5,5,15" Background="Black">
+            <ListBox x:Name="List" Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Margin="0,5,5,15" Background="Black">
+                <ListBox.Style>
+                    <Style>
+                        <Setter Property="Control.FontFamily" Value="comic sans ms" />
+                        <Setter Property="Control.Foreground" Value="Gray" />
+                        <Setter Property="ItemsControl.FontSize" Value="18"/>
+                    </Style>
+                </ListBox.Style>
                 <TextBlock
                     Height="40"
                     Width="85"
@@ -60,36 +67,35 @@
                     Foreground="White"
                     Text="Оценка"/>
             </ListBox>
-            <ListBox x:Name="UserData" Grid.RowSpan ="4" Grid.Column="3" Margin="5,5,5,15" Height="180" Background="Black" Grid.Row="1">
+            <ListBox x:Name="UserData" Grid.RowSpan ="4" Grid.Column="3" Margin="0,5,5,15" Height="180" Background="Black" Grid.Row="1">
+                <ListBox.Style>
+                    <Style>
+                        <Setter Property="Control.FontFamily" Value="comic sans ms" />
+                        <Setter Property="Control.Foreground" Value="Gray" />
+                        <Setter Property="ItemsControl.FontSize" Value="18"/>
+                    </Style>
+                </ListBox.Style>
                 <TextBlock x:Name="userName"
                        TextAlignment="Center"
-                       HorizontalAlignment="Stretch"
                        Width="260"
                        Height="40"
-                       Foreground="White"
-                       FontSize="25"/>
+                           FontSize="14"/>
                 <TextBlock x:Name="userAge"
-                           HorizontalAlignment="Stretch"
                            TextAlignment="Center"
                        Width="260"
                        Height="40"
-                       Foreground="White"
-                       FontSize="25"/>
+                           FontSize="16"/>
                 <TextBlock x:Name="userLocation"
                            TextAlignment="Center"
-                       HorizontalAlignment="Stretch"
                        Width="260"
                        Height="40"
-                       Foreground="White"
-                       FontSize="25"/>
+                           FontSize="14"/>
                 <TextBlock x:Name="userStatus"
                            TextAlignment="Center"
-                       HorizontalAlignment="Stretch"
                        Width="260"
-                       Height="40"
-                       Foreground="White"
-                       FontSize="25"/>
+                       Height="40"/>
             </ListBox>
+            
             <Button x:Name="SetRaiting"
                     Click="SetRaiting_Click"
                     Content="Поставить оценку"

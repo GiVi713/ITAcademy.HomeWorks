@@ -28,7 +28,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
                 <ListBox x:Name="OpinList"
                      FontSize="16"
                      Foreground="Black"

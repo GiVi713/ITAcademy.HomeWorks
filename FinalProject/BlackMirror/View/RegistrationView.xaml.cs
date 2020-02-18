@@ -1,9 +1,9 @@
 ﻿using BlackMirror.Model;
 using BlackMirror.ViewModel;
-using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,6 +20,8 @@ namespace BlackMirror.View
             InitializeComponent();
         }
 
+
+        //Buttons
         private void ButtonRegAccount(object sender, RoutedEventArgs e)
         {
             
@@ -51,12 +53,14 @@ namespace BlackMirror.View
             command.Parameters.Add("@photo", MySqlDbType.VarChar).Value = load.GetImage();
             CheckText text = new CheckText();
 
+            string path = @"C:\Users\Виктор\Desktop\ITAcademy.HomeWorks\ITAcademy.HomeWorks\ITAcademy.HomeWorks\FinalProject\BlackMirror\Opinions";
             db.openConnection();
             if (command.ExecuteNonQuery() == 1)
             {
                 Reg.Visibility = Visibility.Collapsed;
                 MessageBox.Show("Аккаунт был создан");
                 AccountView.currentLogin = logbox.Text;
+                FileStream stream = new FileStream($"{path}\\{logbox.Text}.txt", FileMode.Create);
                 Hide();
                 DataContext = new MainViewModel();
             }
@@ -66,17 +70,22 @@ namespace BlackMirror.View
             db.closeConnection();
         }
 
+
         private void RegReturn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             DataContext = new MainViewModel();
         }
 
+
         private void UploadPhoto_Click(object sender, RoutedEventArgs e)
         {
             load.LoadImage();
         }
 
+
+
+        //Methods
         public Boolean CheckLogin()
         {
             DataTable table = new DataTable();
@@ -96,6 +105,8 @@ namespace BlackMirror.View
             else
                 return false;
         }
+
+
         private void Hide()
         {
             HideElements hide = new HideElements();

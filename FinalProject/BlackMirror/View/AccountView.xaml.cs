@@ -8,13 +8,10 @@ using System.Windows.Controls;
 
 namespace BlackMirror.View
 {
-    /// <summary>
-    /// Interaction logic for AccountView.xaml
-    /// </summary>
     public partial class AccountView : UserControl
     {
-        public static List<string> list = new List<string>();
         public static string currentLogin = "";
+
         public AccountView()
         {
             InitializeComponent();
@@ -24,9 +21,7 @@ namespace BlackMirror.View
         {
             var loginUser = loginField.Text;
             var passUser = passField.Password;
-            list.Add(loginUser);
             currentLogin = loginField.Text;
-            
 
             DataBase db = new DataBase();
             DataTable table = new DataTable();

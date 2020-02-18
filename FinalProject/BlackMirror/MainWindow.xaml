@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="DCS" Height="454.5" Width="867.5"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
 
     <Window.Resources>
         <Style x:Key="BlackAndWhite">
@@ -18,7 +19,6 @@
     </Window.Resources>
 
     <Window.Background>
-        
         <ImageBrush ImageSource="Pictures/MainLogo.jpg"/>
     </Window.Background>
 

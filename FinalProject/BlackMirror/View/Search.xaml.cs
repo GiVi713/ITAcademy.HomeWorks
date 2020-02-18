@@ -1,7 +1,6 @@
 ﻿using BlackMirror.ViewModel;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Controls;
 using System.Windows;
 using BlackMirror.Model;
@@ -13,13 +12,17 @@ namespace BlackMirror.View
         private List<object> _names = new List<object>();
         public List<object> _logins = new List<object>();
         public static string Log;
+       
         public Search()
         {
             InitializeComponent();
             HideButtons();
             
         }
-        private void SearchButton_Click(object sender, System.Windows.RoutedEventArgs e)
+
+
+        //Buttons
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new MainViewModel();
             DataBase dataBase = new DataBase();
@@ -91,6 +94,9 @@ namespace BlackMirror.View
                 Hide();
             }
         }
+
+
+        //Methods
         private void ShowButtons()
         {
             var count = _logins.Count;

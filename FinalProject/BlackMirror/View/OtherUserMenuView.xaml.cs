@@ -26,6 +26,10 @@ namespace BlackMirror.View
             userPhoto.SetValue(Image.SourceProperty, imgs.ConvertFromString(image.GetImage(log)));
             LogReturn.Visibility = Visibility.Collapsed;
         }
+
+
+
+        //Buttons
         private void SetOpinion_Click(object sender, RoutedEventArgs e)
         {
             Opinion opinion = new Opinion();
